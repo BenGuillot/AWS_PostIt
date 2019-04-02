@@ -1,8 +1,5 @@
+var lettre = "coucou";
 
-var postit = Array(2);
-for(var i = 0; i < 2; i++){
-	postit[i] = 0;
-}
 
 function affichePostIt(){
   var element = document.querySelector("#scriptab");
@@ -14,10 +11,12 @@ function affichePostIt(){
     tr.innerHTML = '';
     table.appendChild(tr);
     var td = document.createElement("td");
+    var textarea = document.createElement("textarea")
+    table.appendChild(textarea);
     table.appendChild(td);
   }
   element.appendChild(table);             // Append <button> to <body
 }
 
 affichePostIt();
-console.log(post-it);
+console.log('hey');

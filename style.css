@@ -15,3 +15,12 @@ table{
 	color: black;
 	font-style: bold;
 }
+
+textarea{
+	background-color: yellow;
+
+}
+
+canvas{
+	background-color: blue;
+}
