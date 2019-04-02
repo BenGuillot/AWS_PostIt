@@ -1,0 +1,17 @@
+body{
+	background-color: black;
+	color: white;
+}
+
+h1{
+	color: white;	
+}
+
+table{
+	width: 200px;
+	height: 200px;
+	background-color: yellow;
+	border: 2px solid white;
+	color: black;
+	font-style: bold;
+}
