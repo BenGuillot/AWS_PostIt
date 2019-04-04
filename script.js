@@ -1,5 +1,8 @@
-var lettre = "coucou";
+//var express = require('express');
+//var app = express();
+
 var btn;
+
 
 //initialise une table de la taille de la fenêtre 
 function initWindow(){
@@ -17,7 +20,8 @@ initWindow();
 function addPostIt(event){
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
   var element = document.querySelector(".window");
-  //element.innerHTML = '';
+  //a enlever si on veut affihcer plusieurs post-it
+  //element.innerHTML = ''; 
   var table = document.createElement("table");
   table.innerHTML='';
   table.style.top = event.clientY + 'px';
@@ -42,3 +46,37 @@ function action(event){
 btn.addEventListener('dblclick',action);
 
 
+/*app.listen(8080,() =>{
+  console.log('server started!');
+});*/
+
+//*************************************************** */
+/*
+app.get('/',function(req,res){
+  res.send("Post It!");
+});
+
+app.get('/signup',function(req,res){
+  res.send("Sign Up!");
+});
+
+app.get('/login',function(req,res){
+  res.send("Login!");
+});
+
+app.get('/logout',function(req,res){
+  res.send("Log out!");
+});
+
+app.get('/ajouter',function(req,res){
+  res.send("Ajouter!");
+});
+
+app.get('/effacer',function(req,res){
+  res.send("Effacer!");
+});
+
+app.get('/list',function(req,res){
+  res.send("List!");
+});
+*/
