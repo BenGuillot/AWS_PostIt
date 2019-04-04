@@ -17,7 +17,7 @@ initWindow();
 function addPostIt(event){
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
   var element = document.querySelector(".window");
-  element.innerHTML = '';
+  //element.innerHTML = '';
   var table = document.createElement("table");
   table.innerHTML='';
   table.style.top = event.clientY + 'px';
