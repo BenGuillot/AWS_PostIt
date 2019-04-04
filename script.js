@@ -1,11 +1,28 @@
 var lettre = "coucou";
+var btn;
 
+//initialise une table de la taille de la fenêtre 
+function initWindow(){
+  var section = document.querySelector("#scriptab");
+  section.innerHTML='';
+  var window = document.createElement("table");
+  window.innerHTML='';
+  window.className="window";
+  section.appendChild(window);
+  btn = document.querySelector('.window');
+}
+initWindow();
 
-function affichePostIt(){
-  var element = document.querySelector("#scriptab");
+//ajoute un post it aux coordonnées du double clic 
+function addPostIt(event){
+  console.log("x : "+ event.clientX+" y : "+ event.clientY);
+  var element = document.querySelector(".window");
   element.innerHTML = '';
   var table = document.createElement("table");
-  table.innerHTML = '';
+  table.innerHTML='';
+  table.style.top = event.clientY + 'px';
+  table.style.left = event.clientX + 'px';
+  table.className="postIt";
   for(i = 0; i < 2; i++){
     var tr = document.createElement("tr");
     tr.innerHTML = '';
@@ -15,8 +32,13 @@ function affichePostIt(){
     table.appendChild(textarea);
     table.appendChild(td);
   }
-  element.appendChild(table);             // Append <button> to <body
+  element.appendChild(table);        
 }
 
-affichePostIt();
-console.log('hey');
+function action(event){
+  addPostIt(event);
+}
+
+btn.addEventListener('dblclick',action);
+
+
