@@ -1,5 +1,7 @@
-//var express = require('express');
-//var app = express();
+import { randomBytes } from "crypto";
+
+/*var express = require('express');
+var app = express();*/
 
 var btn;
 
@@ -40,6 +42,7 @@ function addPostIt(event){
 }
 
 function action(event){
+  alert("creation de post-it!:");
   addPostIt(event);
 }
 
