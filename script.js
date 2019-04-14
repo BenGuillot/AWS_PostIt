@@ -1,7 +1,8 @@
+//lancer le serveur avec nodejs script.js
 var express = require('express');
 var app = express();
 
-app.use('/s', express.static('truc'));
+app.use('/s', express.static('app'));
 
 
 app.listen(8080,() =>{
@@ -9,32 +10,32 @@ app.listen(8080,() =>{
 });
 
 //******************************************************************************************************************************** */
-/*
-app.get('/',function(req,res){
+
+app.all('/',function(req,res){
   res.send("Post It!");
 });
 
-app.get('/signup',function(req,res){
+app.all('/signup',function(req,res){
   res.send("Sign Up!");
 });
 
-app.get('/login',function(req,res){
+app.all('/login',function(req,res){
   res.send("Login!");
 });
 
-app.get('/logout',function(req,res){
+app.all('/logout',function(req,res){
   res.send("Log out!");
 });
 
-app.get('/ajouter',function(req,res){
+app.all('/ajouter',function(req,res){
   res.send("Ajouter!");
 });
 
-app.get('/effacer',function(req,res){
+app.all('/effacer',function(req,res){
   res.send("Effacer!");
 });
 
-app.get('/list',function(req,res){
+app.all('/s/list',function(req,res){
   res.send("List!");
 });
-*/
+
