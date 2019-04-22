@@ -1,6 +1,13 @@
+
 //lancer le serveur avec nodejs script.js
 var express = require('express');
 var app = express();
+
+
+/*
+import { randomBytes } from "crypto";
+*/
+
 
 app.use('/s', express.static('app'));
 
