@@ -7,14 +7,6 @@ function initWindow(){
   var window = document.createElement("table");
   window.innerHTML='';
   window.className="window";
-  var opt = document.createElement("table");
-  opt.innerHTML='';
-  opt.className="opt";
-  var addUser = document.createElement("tr");
-  addUser.innerHTML=`<a href=\"/signup \"> sign up`;
-  opt.appendChild
-  opt.appendChild(addUser);
-  section.appendChild(opt);
   section.appendChild(window);
   btn = document.querySelector('.window');
 }

@@ -24,6 +24,30 @@
 	<section id="scriptab">
 		Affichage d'un post-it avec JS.
 	</section>
+	<section id="templateAndOption">
+		<table class="opt">
+			<!--{{ %if not logged in}}-->
+			<tr>
+				<form method="POST" action="/login">
+					<input type="text" name="id" placeholder="id">
+					<input type="password" name="pwd" placeholder="password">
+					<button type="submit">log in !</button>
+				</form>
+			</tr>
+			<!--{{ %else }}-->
+			<td>
+				<form method="POST" action="/logout">
+					<button type="submit">log out !</button>
+				</form>
+			</td>
+			<!--{{ %endif }}-->
+			<tr>
+				<a href="/signup"> sign up
+			</tr>
+			
+		</table>
+	</section>
+	
 	<!--
 	<section id="scriptcanevas">
 		<p> Affichage d'un canevas.

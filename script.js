@@ -22,7 +22,11 @@ app.all('/',function(req,res){
   res.redirect('/s/postit.html');
 });
 
-app.all('/signup',function(req,res){
+app.get('/signup',function(req,res){
+  res.redirect('/s/signup.html');
+});
+
+app.post('/signup',function(req,res){
   res.send("Sign Up!");
 });
 
