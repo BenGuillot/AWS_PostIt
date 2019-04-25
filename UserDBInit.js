@@ -8,23 +8,25 @@ const knex = require('knex')({
 });
 
 async function foo() {
-  
+  try{
     await knex.raw(`DROP TABLE IF EXISTS users`);  
   
     await knex.raw(`CREATE TABLE users 
                       (id VARCHAR(255) PRIMARY KEY,
-                      pwd VARCHAR(255) NOT NULL`);
+                      pwd VARCHAR(255) NOT NULL)`);
     
     await knex('users').columnInfo();
-    await knex.raw(`INSERT INTO users (login, pass)
+    await knex.raw(`INSERT INTO users (id, pwd)
                           VALUES
                           ('FAHEI','faudraChangerCa'),
-                          ('LAU', 'caAussi', 'Garry')`);
+                          ('LAU', 'caAussi')`);
   
     console.log(await knex.select('*').from('users'));
   
     await knex.destroy();
-    
+  }catch(error){
+      console.error(error);
+  }
 }
 
 
