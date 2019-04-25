@@ -1,12 +1,20 @@
 var btn;
 
-//initialise une table de la taille de la fenêtre 
+//initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
   section.innerHTML='';
   var window = document.createElement("table");
   window.innerHTML='';
   window.className="window";
+  var opt = document.createElement("table");
+  opt.innerHTML='';
+  opt.className="opt";
+  var addUser = document.createElement("tr");
+  addUser.innerHTML=`<a href=\"/signup \"> sign up`;
+  opt.appendChild
+  opt.appendChild(addUser);
+  section.appendChild(opt);
   section.appendChild(window);
   btn = document.querySelector('.window');
 }

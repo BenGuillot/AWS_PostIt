@@ -19,7 +19,7 @@ app.listen(8080,() =>{
 //******************************************************************************************************************************** */
 
 app.all('/',function(req,res){
-  res.send("Post It!");
+  res.redirect('/s/postit.html');
 });
 
 app.all('/signup',function(req,res){
