@@ -18,8 +18,9 @@ h1{
 	color: white;	
 }
 
+h2{}
+
 .postIt{
-	
 	overflow: auto;
 	position: absolute;
 	width: 200px;
@@ -47,12 +48,6 @@ textarea{
 
 }
 
-canvas{
-	height: 100;
-	width: 100;
-	background-color: blue;
-}
-
 .window{
 	overflow: hidden;
 	position: absolute;
@@ -67,13 +62,22 @@ canvas{
 }
 
 #templateAndOption{
-	position:   absolute;
-	width : 10%;
-	height : 100%;
-	top:0;
-	bottom:0;
-	left : 100% - 10%;
-	right:0;
-	border:1ch;
+	position: absolute;
+	width: 300px;
+	height: 400px;
+	top: 2%;
+	bottom: -2%;
+	left: 100% - 10%;
+	right: 2%;
+	border: 1ch;
 	background-color: white;
+	color: black;
+}
+
+table{
+	position: absolute;
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-right: -5%;
+	margin-bottom: -5%;
 }
