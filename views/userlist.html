@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>TD5 </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<!--<script src="postit.js" defer></script>-->
+   <style>
+            table {
+                background-color: black;
+            }
+            td {
+                background-color: white;
+            }
+            span {
+                display: inline-block;
+                width: 3em;
+                height: 1em;
+            }
+        </style>
+</head>
+<body>
+  <form>
+     <table>
+                <tr>
+                    <td>id</td>
+                    <td>pwd</td>
+                </tr>
+                {% for user in userlist %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.pwd }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+  </form>
+</body>
+</html>
+
+
