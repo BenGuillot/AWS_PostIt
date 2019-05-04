@@ -21,6 +21,16 @@ const expressAsyncErrors = require('express-async-errors');
 import { randomBytes } from "crypto";
 */
 
+/////// Userlist ///////
+var connected_users = {};
+class users{
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+
+
 
 app.use('/s', express.static('views'))
   .use(bodyP.urlencoded({ extended: false }))
@@ -36,11 +46,11 @@ app.listen(8080,() =>{
 //******************************************************************************************************************************** */
 
 app.all('/',function(req,res){
-  res.redirect('/s/postit.html');
+  res.redirect('/views/postit.html');
 });
 
 app.get('/signup',function(req,res){
-  res.redirect('/s/signup.html');
+  res.redirect('/views/signup.html');
 });
 
 app.post('/signup',async function(req,res){
@@ -61,19 +71,20 @@ app.all('/userlist', async function(req, response) {
   response.render('userlist.html', {'userlist':str2}); 
 });
 
-app.all('/login',function(req,res){
+app.get('/login/:user',function(req,res){
+  connected_users[req.params] = new User(req.params);
   res.send("Login!");
 });
 
-app.all('/logout',function(req,res){
+app.post('/logout/:user',function(req,res){
   res.send("Log out!");
 });
 
-app.all('/ajouter',function(req,res){
+app.all('/ajouter/:user',function(req,res){
   res.send("Ajouter!");
 });
 
-app.all('/effacer',function(req,res){
+app.all('/effacer/:user',function(req,res){
   res.send("Effacer!");
 });
 

@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Hey you</title>
+	<title>Créer un compte</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<!--<script src="postit.js" defer></script>-->
 </head>
 <body>
   <h1>Wanna join Post-it Community ?</h1>
-    <form method="POST" action="/signup">
-      <input type="text"  required name ="id" placeholder="Choose a nickname" >
-      <input type="password"  required name ="pwd" placeholder="Choose a password">
-      <button type="submit">submit</button> 
+  <form method="POST" action="signup.html">
+    <table class="signup">
+      <tr>
+        <td>Choisissez votre identifiant :</td>
+        <td><input type="text"  required name ="id" placeholder="Choose a nickname"></td>
+      </tr>
+      <tr>
+        <td>Choisissez votre mot de passe :</td>
+        <td><input type="password" required name ="pwd" placeholder="Choose a password"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value ="Je crée un compte !"></td>
+      </tr>
     </form>
+  </table>
 </body>
 </html>
 

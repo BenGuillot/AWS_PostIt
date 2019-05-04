@@ -7,12 +7,12 @@ const knex = require('knex')({
     debug: true,
 });
 
-async function foo() {
+async function createPostIt() {
   try{
     await knex.raw(`DROP TABLE IF EXISTS postit`);  
   
     await knex.raw(`CREATE TABLE postit 
-                      (id VARCHAR(255) PRIMARY KEY,
+                      (id VARCHAR(255) PRIMARY KEY AUTO INCREMENT,
                       data VARCHAR(500),
                       date datetime,
                       x INT(16),
@@ -27,9 +27,24 @@ async function foo() {
   }catch(error){
       console.error(error);
   }
-    
+}
+
+async function insertPostIt() {
+  try{
+    await knex(postit).insert([
+                              {data: },
+                              {date: },
+                              {x: },
+                              {y: },
+                              {author: },
+      ]);
+    }
+    console.log(await knex.select('*').from('postit'));
+    await knex.destroy();
+  }catch(error){
+      console.error(error);
+  }
 }
 
 
-
-foo();
+createPostIt();
