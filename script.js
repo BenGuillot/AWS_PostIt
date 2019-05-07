@@ -46,11 +46,11 @@ app.listen(8080,() =>{
 //******************************************************************************************************************************** */
 
 app.all('/',function(req,res){
-  res.redirect('/views/postit.html');
+  res.redirect('/s/postit.html');
 });
 
 app.get('/signup',function(req,res){
-  res.redirect('/views/signup.html');
+  res.redirect('/s/signup.html');
 });
 
 app.post('/signup',async function(req,res){
