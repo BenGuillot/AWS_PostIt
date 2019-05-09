@@ -2,19 +2,14 @@
 <head>
 	<title>Post it</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="style.css">
-	<script src="postit.js" defer></script>
+	<link rel="stylesheet" href="/s/style.css">
+	<!--<script src="/s/postit.js" defer></script>-->
 </head>
 <body>
 	<h1 align="center">Bienvenue sur PostIt !</h1>
-	<p>
-		Insérer un post-it !
-	</p>
 	<section id="scriptab">
-		Affichage d'un post-it avec JS.
-	
-		<span id="templateAndOption">
 		{% if uid == 0 %}
+		<span id="templateAndOption">
 			<h2 align="center">Connectez-vous :</h2>
 			<table class="opt">
 				<tr>
@@ -34,14 +29,21 @@
 				</tr>
 				<tr>
 					<td>
-						<form method="POST" action="/signup">
+						<form method="GET" action="/signup">
 							<button type="submit" name="signup">Creer un compte !</button>
 						</form>
 					</td>
 				</tr>
 			</table>
+		</span>
 		{% else  %}
+		<script src="/s/postit.js"></script>
+			Affichage d'un post-it avec JS.
+		<span id="templateAndOption">
 			<h2 align="center">Hey {{ name }}</h2>
+			<p>
+			Insérer un post-it !
+			</p>
 			<table class="opt">
 				<tr>
 					<td>
@@ -51,8 +53,8 @@
 					</td>
 				</tr>			
 			</table>
-		{% endif  %}
 		</span>
+		{% endif  %}
 	</section>
 </body>
 </html>

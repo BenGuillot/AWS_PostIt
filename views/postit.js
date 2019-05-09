@@ -40,6 +40,4 @@ function action(event){
   addPostIt(event);
 }
 
-
-
 btn.addEventListener('dblclick',action);
