@@ -10,62 +10,49 @@
 	<p>
 		Insérer un post-it !
 	</p>
-	<!--
-	<section id="postit">
-		<p>
-			Affichage d'un post-it juste en HTML/CSS.<br>
-			<table>
-				<tr><td></td></tr>
-			</table>
-		</p>
-	</section>
-	-->
 	<section id="scriptab">
 		Affichage d'un post-it avec JS.
-	</section>
-	<section id="templateAndOption">
-		<h2 align="center">Connectez-vous :</h2>
-		<table class="opt">
-			<!--{{ %if not logged in}}-->
-			<tr>
-				<td>
-					<form method="POST" action="/login">
-						<input type="text" name="id" placeholder="Identifiant"><br>
-						<input type="password" name="pwd" placeholder="Mot de passe"><br>
-						<button type="submit" name="login">Connexion !</button>
-					</form>
-				</td>
-			</tr>
-			<!--{{ %else }}-->
-			<tr>
-				<td>
-					<form method="POST" action="/logout">
-						<button type="submit" name"logout">Déconnexion !</button>
-					</form>
-				</td>
-			<tr>
-			<!--{{ %endif }}-->
-			<tr>
-				<td align="center">
-					OU
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="signup.html"> Créez un compte !
-				</td>
-			</tr>
-		</table>
-	</section>
 	
-	<!--
-	<section id="scriptcanevas">
-		<p> Affichage d'un canevas.
-			<canvas id="tutoriel" width="200" height="200">
-				
-			</canvas>
-		</p>
+		<span id="templateAndOption">
+		{% if uid == 0 %}
+			<h2 align="center">Connectez-vous :</h2>
+			<table class="opt">
+				<tr>
+					<td>
+						<form method="POST" action="/login">
+							<input type="text" name="id" placeholder="Identifiant"><br>
+							<input type="password" name="pwd" placeholder="Mot de passe"><br>
+							<button type="submit" name="login">Connexion !</button>
+						</form>
+					</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td align="center">
+						OU
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form method="POST" action="/signup">
+							<button type="submit" name="signup">Creer un compte !</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+		{% else  %}
+			<h2 align="center">Hey {{ name }}</h2>
+			<table class="opt">
+				<tr>
+					<td>
+						<form method="POST" action="/logout">
+							<button type="submit" name"logout">Déconnexion !</button>
+						</form>
+					</td>
+				</tr>			
+			</table>
+		{% endif  %}
+		</span>
 	</section>
-	-->
 </body>
 </html>

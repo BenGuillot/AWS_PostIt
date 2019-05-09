@@ -29,7 +29,7 @@ async function createPostIt() {
   }
 }
 
-async function insertPostIt() {
+/*async function insertPostIt() {
   try{
     await knex(postit).insert([
                               {data: },
@@ -44,7 +44,7 @@ async function insertPostIt() {
   }catch(error){
       console.error(error);
   }
-}
+}*/
 
 
 createPostIt();

@@ -10,16 +10,16 @@
     "start": "node script.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "body-parser": "^1.18.3",
     "bo-selector": "^0.0.10",
+    "body-parser": "^1.18.3",
+    "consolidate": "^0.15.1",
     "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-async-errors": "^3.1.1",
     "express-session": "^1.16.1",
     "knex": "^0.16.5",
-    "express-async-errors": "^3.1.1",
-    "sqlite3": "^4.0.6",
     "nunjucks": "^3.2.0",
-    "consolidate": "^0.15.1"
+    "sqlite3": "^4.0.6"
   },
   "engines": {
     "node": "8.x"
