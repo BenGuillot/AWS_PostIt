@@ -79,6 +79,7 @@ app.get('/signup',function(req,res){
 });
 
 app.post('/signup',async function(req,res){
+  if (await testValueExist(req.body.id, req.body.pwd)==false){
     try{
       await knex.raw('INSERT INTO users VALUES (?,?)',
                      [req.body.id, req.body.pwd]);
@@ -89,7 +90,10 @@ app.post('/signup',async function(req,res){
     res.render(__dirname+'/views/postit.html', { "uid" : 1,
                                                  "name" : req.body.id});
   }
-);
+  else{
+    res.redirect('/s/signup.html');
+  }
+});
 
 /**AFFICHAGE DE LA BD USER POUR LES TESTS */
 app.all('/userlist', async function(req, response) {
@@ -117,6 +121,8 @@ app.post('/login', async function(request, response) {
 });
 
 app.post('/logout',function(req,res){
+  req.session.login  = null;
+  req.session.password = null;
   res.redirect('/');
 });
 

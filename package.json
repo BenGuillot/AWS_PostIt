@@ -19,7 +19,7 @@
     "express-session": "^1.16.1",
     "knex": "^0.16.5",
     "nunjucks": "^3.2.0",
-    "sqlite3": "^4.0.6"
+    "sqlite3": "^4.0.8"
   },
   "engines": {
     "node": "8.x"
