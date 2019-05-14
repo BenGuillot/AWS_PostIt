@@ -131,8 +131,25 @@ app.post('/logout',function(req,res){
 
 //********************************************************************************************************************************
 //AJOUT D'UN POST-IT
-app.all('/ajouter',function(req,res){
-  res.send("Ajouter!");
+app.post('/ajouter',async function(req,res){
+  let id = 1;
+  try {
+    var rows = await knex.raw('SELECT * FROM postit');
+    for (var r of rows) {
+      id+=1;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  try{
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?)',
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login]);
+  }catch(error){
+    console.error(error);
+    res.redirect('/');
+  }    
+  let postit = await knex.select('*').from('postit');
+  res.redirect('/');
 });
 //********************************************************************************************************************************
 //PAS ENCORE IMPLEMENTE
