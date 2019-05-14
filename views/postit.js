@@ -28,9 +28,12 @@ function addPostIt(event){
   px.type = "text"; px.value=event.clientX; px.name="px";
   var py = document.createElement("input");
   py.innerHTML='';
-  py.type = "text"; py.value=event.clientY; py.name="px";
+  py.type = "text"; py.value=event.clientY; py.name="py";
+  var butt = document.createElement("button");
+  butt.innerHTML='';
+  butt.type = "submit"; butt.value="send !";
          
-  form.appendChild(data); form.appendChild(date); form.appendChild(px); form.appendChild(py);
+  form.appendChild(data); form.appendChild(date); form.appendChild(px); form.appendChild(py); form.appendChild(butt);
   element.appendChild(form);        
 }
 
