@@ -1,7 +1,7 @@
 const knex = require('knex')({
     client: 'sqlite3',
     connection: {
-        filename: "./PostIt.sqlite3"
+        filename: "./mydb.sqlite3"
     },
     useNullAsDefault:true,
     debug: true,
@@ -23,7 +23,8 @@ async function createPostIt() {
     await knex('postit').columnInfo();
     await knex.raw(`INSERT INTO postit (data,author, x, y)
                           VALUES
-                          ('Original Post It', 'Fahei','50','50')`);
+                          ('Original Post It', 'Fahei','150','150'),
+                          ('Test Post It', 'Fahei', 'author400', '400')`);
   
     console.log(await knex.select('*').from('postit'));
   

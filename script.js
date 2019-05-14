@@ -11,23 +11,12 @@ const knex = require('knex')({
   useNullAsDefault:true,
   debug: true,
 });
+
 const bodyP = require('body-parser');
 const cookieP = require('cookie-parser');
 const consolidate = require('consolidate');
 const expressAsyncErrors = require('express-async-errors');
 const session = require('express-session');
-
-/*
-import { randomBytes } from "crypto";
-*/
-
-/////// Userlist ///////
-var connected_users = {};
-class users{
-  constructor(name) {
-    this.name = name;
-  }
-}
 
 var uid = 0;
 
@@ -62,14 +51,15 @@ async function testValueExist(login, password){
   }
 }
 
-
-
 //******************************************************************************************************************************** */
 //HANDLERS
 
-app.all('/',function(req,res){
-  res.render(__dirname+'/views/postit.html', {"uid" : 0,
-                                "name" : ""});
+app.all('/',async function(req,res){
+  let postit = await knex.select('*').from('postit');
+  console.log(postit);
+  res.render(__dirname+'/views/postit.html', {"uid" : uid,
+                                              "name" : req.session.login,
+                                              "postit" : postit});
 });
 
 //********************************************************************************************************************************
@@ -87,8 +77,10 @@ app.post('/signup',async function(req,res){
       console.error(error);
       res.redirect('/s/signup.html');
     }    
+    let postit = await knex.select('*').from('postit');
     res.render(__dirname+'/views/postit.html', { "uid" : 1,
-                                                 "name" : req.body.id});
+                                                 "name" : req.body.id,
+                                                 "postit" : postit});
   }
   else{
     res.redirect('/s/signup.html');
@@ -112,8 +104,8 @@ app.post('/login', async function(request, response) {
   if (await testValueExist(request.body.id, request.body.pwd)==true){
     request.session.login = request.body.id;
     request.session.password = request.body.pwd;
-    response.render(__dirname+'/views/postit.html', { "uid" : 1,
-                                        "name" : request.body.id});
+    uid = 1;
+    response.redirect('/');
   }
   else {
     response.redirect('/');
@@ -123,6 +115,7 @@ app.post('/login', async function(request, response) {
 app.post('/logout',function(req,res){
   req.session.login  = null;
   req.session.password = null;
+  uid = 0;
   res.redirect('/');
 });
 
@@ -137,15 +130,13 @@ app.post('/logout',function(req,res){
 });*/
 
 //********************************************************************************************************************************
-//PAS ENCORE IMPLEMENTE
-app.get('/login/:user',function(req,res){
-  connected_users[req.params] = new User(req.params);
-  res.send("Login!");
-});
-
-app.all('/ajouter/:user',function(req,res){
+//AJOUT D'UN POST-IT
+app.all('/ajouter',function(req,res){
   res.send("Ajouter!");
 });
+//********************************************************************************************************************************
+//PAS ENCORE IMPLEMENTE
+
 
 app.all('/effacer/:user',function(req,res){
   res.send("Effacer!");

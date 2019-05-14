@@ -3,9 +3,9 @@ var btn;
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
-  section.innerHTML='';
+  //section.innerHTML='';
   var window = document.createElement("table");
-  window.innerHTML='';
+  //window.innerHTML='';
   window.className="window";
   section.appendChild(window);
   btn = document.querySelector('.window');
@@ -15,24 +15,23 @@ initWindow();
 //ajoute un post it aux coordonnées du double clic 
 function addPostIt(event){
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
-  var element = document.querySelector(".window");
-  //a enlever si on veut affihcer plusieurs post-it
-  //element.innerHTML = ''; 
-  var table = document.createElement("table");
-  table.innerHTML='';
-  table.style.top = event.clientY + 'px';
-  table.style.left = event.clientX + 'px';
-  table.className="postIt";
-  for(i = 0; i < 2; i++){
-    var tr = document.createElement("tr");
-    tr.innerHTML = '';
-    table.appendChild(tr);
-    var td = document.createElement("td");
-    var textarea = document.createElement("textarea")
-    table.appendChild(textarea);
-    table.appendChild(td);
-  }
-  element.appendChild(table);        
+  var element = document.querySelector("#templateAndOption");
+  var form = document.createElement("form"); form.innerHTML=''; form.method="POST"; form.action="/ajouter";
+  var data = document.createElement("input");
+  data.innerHTML='';
+  data.type = "text"; data.placeholder ="add a post it"; data.name="data";
+  var date = document.createElement("input")
+  date.innerHTML='';
+  date.type = "date"; date.name="date";
+  var px = document.createElement("input");
+  px.innerHTML='';
+  px.type = "text"; px.value=event.clientX; px.name="px";
+  var py = document.createElement("input");
+  py.innerHTML='';
+  py.type = "text"; py.value=event.clientY; py.name="px";
+         
+  form.appendChild(data); form.appendChild(date); form.appendChild(px); form.appendChild(py);
+  element.appendChild(form);        
 }
 
 function action(event){
