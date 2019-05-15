@@ -56,7 +56,7 @@ async function testValueExist(login, password){
 
 app.all('/',async function(req,res){
   let postit = await knex.select('*').from('postit');
-  console.log(postit);
+  //console.log(postit);
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
                                               "postit" : postit});
@@ -118,16 +118,6 @@ app.post('/logout',function(req,res){
   uid = 0;
   res.redirect('/');
 });
-
-
-/*app.get('/', function(request, response) {
-  
-  if (request.session.login) {                  
-    response.redirect('/userlist');
-  } else {
-    response.redirect('/login');             
-  }
-});*/
 
 //********************************************************************************************************************************
 //AJOUT D'UN POST-IT

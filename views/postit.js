@@ -12,29 +12,41 @@ function initWindow(){
 }
 initWindow();
 
+//récuppère la date courante;
+function getDate(){
+  let localdate = new Date();
+  let month = localdate.getMonth()+1;
+  let str = localdate.getFullYear()+"-"+month+"-"+localdate.getDate();
+  console.log(str);
+  return str;
+}
 //ajoute un post it aux coordonnées du double clic 
 function addPostIt(event){
+  let localdate = new Date();
+  let str = getDate();
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
   var element = document.querySelector("#templateAndOption");
+  var span = document.createElement("span"); span.className="PostItForm";
   var form = document.createElement("form"); form.innerHTML=''; form.method="POST"; form.action="/ajouter";
   var data = document.createElement("input");
   data.innerHTML='';
-  data.type = "text"; data.placeholder ="add a post it"; data.name="data";
+  data.type = "text"; data.placeholder ="add a post it"; data.name="data";data.required="true";
   var date = document.createElement("input")
   date.innerHTML='';
-  date.type = "date"; date.name="date";
+  date.type = "hidden"; date.name="date"; date.value=str;
   var px = document.createElement("input");
   px.innerHTML='';
-  px.type = "text"; px.value=event.clientX; px.name="px";
+  px.type = "hidden"; px.value=event.clientX; px.name="px";
   var py = document.createElement("input");
   py.innerHTML='';
-  py.type = "text"; py.value=event.clientY; py.name="py";
+  py.type = "hidden"; py.value=event.clientY; py.name="py";
   var butt = document.createElement("button");
   butt.innerHTML='';
-  butt.type = "submit"; butt.value="send !";
+  butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
          
   form.appendChild(data); form.appendChild(date); form.appendChild(px); form.appendChild(py); form.appendChild(butt);
-  element.appendChild(form);        
+  span.appendChild(form);
+  element.appendChild(span);        
 }
 
 function action(event){
