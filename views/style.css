@@ -30,6 +30,11 @@ h2{}
 	border: 2px solid white;
 	color: black;
 	font-style: bold;
+	z-index: 0;
+}
+
+.postIt:hover, .ShinyPostIt:hover{
+	Z-index:2001;
 }
 
 .ShinyPostIt{
@@ -71,11 +76,28 @@ textarea{
 	left: 100% - 10%;
 	right: 2%;
 	border: 1ch;
+	z-index: 2000;
 	background-color: white;
 	color: black;
 }
 
+.PostItForm{
+	position: absolute;
+	overflow: hidden;
+	width: 150px;
+	height: 20px;
+	top: 60%;
+	bottom: -30%;
+	left: 100% - 50%;
+	right: 30%;
+	border: 1ch;
+	z-index: 2000;
+	background-color: black;
+	color: white;
+}
+
 table.opt{
+	overflow: hidden;
 	position: absolute;
 	margin-top: 15%;
 	margin-left: 5%;

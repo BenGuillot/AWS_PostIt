@@ -47,7 +47,7 @@
 				<tr>
 					<td>
 						<form method="POST" action="/logout">
-							<button type="submit" name"logout">Déconnexion !</button>
+							<button type="submit" name="logout">Déconnexion !</button>
 						</form>
 					</td>
 				</tr>			
@@ -55,7 +55,7 @@
 		</span>
 		{% endif  %}
 		{% for data in postit%}
-			<table class="postIt" style="left : {{ data.x }}px; top: {{ data.y }}px; " >
+			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px; " >
 				<tr>
 					<td>{{ data.author}} posted :</td>
 				</tr>
@@ -63,7 +63,16 @@
 					<td>{{ data.data }}</td>
 				</tr>
 				<tr>
-					<td>{{ data.date }}</td>
+					<td>{{ data.date }}
+						{% if name ==  data.author  %}
+						<form method="POST" action="/effacer" class="delete">
+							<input type="hidden" name="author" value="{{ data.author }}">
+							<input type="hidden" name="id" value="{{ data.id }}">
+							<input type="hidden" name="delete" value="y">
+							<button type="submit" name="delete">delete ?</button>
+						</form>
+						{% endif %}
+					</td>
 				</tr>
 			</table>
 		{% endfor %}

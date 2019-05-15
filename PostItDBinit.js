@@ -17,14 +17,14 @@ async function createPostIt() {
                       date datetime,
                       x INT(16),
                       y INT(16),
-                      author VARCHAR(255))`);
+                      author VARCHAR(255),
+                      type VARCHAR(255))`);
                     
     console.log('ca bug ici');
     await knex('postit').columnInfo();
-    await knex.raw(`INSERT INTO postit (data,author, x, y)
+    await knex.raw(`INSERT INTO postit (data,author, x, y, type)
                           VALUES
-                          ('Original Post It', 'Fahei','150','150'),
-                          ('Test Post It', 'Fahei', 'author400', '400')`);
+                          ('Original Post It', 'FAHEI','150','150','ShinyPostIt')`);
   
     console.log(await knex.select('*').from('postit'));
   
@@ -33,23 +33,4 @@ async function createPostIt() {
       console.error(error);
   }
 }
-
-/*async function insertPostIt() {
-  try{
-    await knex(postit).insert([
-                              {data: },
-                              {date: },
-                              {x: },
-                              {y: },
-                              {author: },
-      ]);
-    }
-    console.log(await knex.select('*').from('postit'));
-    await knex.destroy();
-  }catch(error){
-      console.error(error);
-  }
-}*/
-
-
 createPostIt();
