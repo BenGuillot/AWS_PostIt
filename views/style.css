@@ -33,7 +33,7 @@ h2{}
 	z-index: 0;
 }
 
-.postIt:hover{
+.postIt:hover, .ShinyPostIt:hover{
 	Z-index:2001;
 }
 

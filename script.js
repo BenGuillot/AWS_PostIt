@@ -51,15 +51,18 @@ async function testValueExist(login, password){
   }
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 //******************************************************************************************************************************** */
 //HANDLERS
 
 app.all('/',async function(req,res){
   let postit = await knex.select('*').from('postit');
-  //console.log(postit);
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
-                                              "postit" : postit});
+                                              "postit" : postit
+                                              });
 });
 
 //********************************************************************************************************************************
@@ -122,6 +125,7 @@ app.post('/logout',function(req,res){
 //********************************************************************************************************************************
 //AJOUT D'UN POST-IT
 app.post('/ajouter',async function(req,res){
+  //compte le nombre de postit pour l'id
   let id = 1;
   try {
     var rows = await knex.raw('SELECT * FROM postit');
@@ -131,23 +135,50 @@ app.post('/ajouter',async function(req,res){
   } catch (err) {
     console.log(err);
   }
+
+  //gestion de shinyPostIt
+  let alea = getRandomInt(100); console.log(alea);
+  let type = "postIt";
+  if(alea < 5){
+    type = "ShinyPostIt";
+  }
+  
+  //ajout du post it
   try{
-    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login]);
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?)',
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type]);
   }catch(error){
     console.error(error);
     res.redirect('/');
-  }    
-  let postit = await knex.select('*').from('postit');
+  } 
+  console.log('post it succesfully added');   
   res.redirect('/');
 });
+
+//SUPRESSION D'UN POST-IT
+app.post('/effacer',async function(req,res){
+  if(req.body.author == req.session.login ){
+    try{
+      await knex('postit').where('id',req.body.id).del();
+    }
+    catch(error){
+      console.error(error);
+      res.redirect('/');
+    }
+    console.log('post it succesfully deleted');
+  }
+  else{
+    console.log('Hun Hun, you can\'t do that little one');
+  }
+  res.redirect('/');
+
+});
+
 //********************************************************************************************************************************
 //PAS ENCORE IMPLEMENTE
 
 
-app.all('/effacer/:user',function(req,res){
-  res.send("Effacer!");
-});
+
 
 app.all('/s/list',function(req,res){
   res.send("List!");
