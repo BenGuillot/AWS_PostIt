@@ -29,11 +29,23 @@ async function foo() {
   }
 }
 
+async function vue(){
+  try{
+    await knex.raw(`DROP VIEW IF EXISTS postitUser`);
+    await knex.raw(`CREATE VIEW postitUser
+                    SELECT *
+                    FROM postit p, users u
+                    WHERE p.author = u.id`);
+  }
+  catch(error){
+  }
+}
+
 async function role(){
   try{
     await knex.raw(`CREATE ROLE utilisateur`);
     await knex.raw(`GRANT SELECT INSERT
-                    ON users
+                    ON postitUser
                     TO utilisateur
                     [WITH GRANT OPTIONS] `);
     await knex.raw(`GRANT utilisateur
@@ -46,4 +58,5 @@ async function role(){
 
 
 foo();
+vue();
 role();
