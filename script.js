@@ -164,9 +164,8 @@ app.post('/modifier', async function(req, res){
     }
     catch(error){
       console.error(error);
-      res.redirect('/');
     }
-    res.redirect('/');
+  }
 });
 
 //SUPRESSION D'UN POST-IT
