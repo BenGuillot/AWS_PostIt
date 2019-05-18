@@ -30,9 +30,20 @@ async function foo() {
 }
 
 async function role(){
-  
+  try{
+    await knex.raw(`CREATE ROLE utilisateur`);
+    await knex.raw(`GRANT SELECT INSERT
+                    ON users
+                    TO utilisateur
+                    [WITH GRANT OPTIONS] `);
+    await knex.raw(`GRANT utilisateur
+                    TO users`);
+  }
+  catch(error){
+  }
 }
 
 
 
 foo();
+role();
