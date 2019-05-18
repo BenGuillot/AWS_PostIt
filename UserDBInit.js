@@ -38,6 +38,7 @@ async function vue(){
                     WHERE p.author = u.id`);
   }
   catch(error){
+    console.error(error);
   }
 }
 
@@ -52,6 +53,7 @@ async function role(){
                     TO users`);
   }
   catch(error){
+    console.error(error);
   }
 }
 
