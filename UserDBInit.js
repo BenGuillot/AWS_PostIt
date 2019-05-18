@@ -36,7 +36,8 @@ async function vue(){
                     SELECT *
                     FROM postit p, users u
                     WHERE p.author = u.id`);
-    console.log(await knex.selec('*').from('postitUser'));
+    
+    await knex.destroy();
   }
   catch(error){
     console.error(error);
@@ -46,12 +47,14 @@ async function vue(){
 async function role(){
   try{
     await knex.raw(`CREATE ROLE utilisateur`);
-    await knex.raw(`GRANT SELECT UPDATE DELETE
+    await knex.raw(`GRANT SELECT INSERT UPDATE DELETE
                     ON postitUser
                     TO utilisateur
                     [WITH GRANT OPTIONS] `);
     await knex.raw(`GRANT utilisateur
                     TO users`);
+    
+    await knex.destroy();
   }
   catch(error){
     console.error(error);
