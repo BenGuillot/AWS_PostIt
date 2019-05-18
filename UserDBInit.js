@@ -32,7 +32,7 @@ async function foo() {
 async function vue(){
   try{
     await knex.raw(`DROP VIEW IF EXISTS postitUser`);
-    await knex.raw(`CREATE VIEW postitUser
+    await knex.raw(`CREATE VIEW postitUser as
                     SELECT *
                     FROM postit p, users u
                     WHERE p.author = u.id`);
