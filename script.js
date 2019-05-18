@@ -156,6 +156,9 @@ app.post('/ajouter',async function(req,res){
 });
 
 //MODIFICATION D'UN POST-IT
+app.get('/modifier', async function(req, res){
+}
+
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
