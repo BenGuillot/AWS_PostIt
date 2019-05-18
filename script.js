@@ -155,6 +155,20 @@ app.post('/ajouter',async function(req,res){
   res.redirect('/');
 });
 
+//MODIFICATION D'UN POST-IT
+app.post('/modifier', async function(req, res){
+  if(req.body.author == req.session.login){
+    try{
+      await knex.raw('UPDATE postit SET data = ?',
+                      [req.body.data]);
+    }
+    catch(error){
+      console.error(error);
+      res.redirect('/');
+    }
+    res.redirect('/');
+});
+
 //SUPRESSION D'UN POST-IT
 app.post('/effacer',async function(req,res){
   if(req.body.author == req.session.login ){
