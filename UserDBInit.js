@@ -29,6 +29,10 @@ async function foo() {
   }
 }
 
+async function role(){
+  
+}
+
 
 
 foo();
