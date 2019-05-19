@@ -31,10 +31,10 @@ app.use('/s', express.static('views'))
     resave: false,
     saveUninitialized: false,}));
 
-
-app.listen(8080,() =>{
+app.listen(process.env.PORT);
+/*app.listen(8080,() =>{
   console.log('server started!');
-});
+});*/
 
 //********************************************************************************************************************************
 //FONCTIONS
@@ -157,12 +157,12 @@ app.post('/ajouter',async function(req,res){
 
 //MODIFICATION D'UN POST-IT
 app.get('/modifier', async function(req, res){
-}
+});
 
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
-      await knex.raw('UPDATE postit SET data = ?',
+      await knex.raw('UPDATE postit SET data = (?)',
                       [req.body.data]);
     }
     catch(error){
