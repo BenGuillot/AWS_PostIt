@@ -173,7 +173,7 @@ app.post('/modifier', async function(req, res){
 
 //SUPRESSION D'UN POST-IT
 app.post('/effacer',async function(req,res){
-  /*if(req.body.author == req.session.login ){
+  if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
     }
@@ -186,9 +186,8 @@ app.post('/effacer',async function(req,res){
   else{
     console.log('Hun Hun, you can\'t do that little one');
   }
-  res.redirect('/');*/
-  res.send("effacer!");
-
+  res.redirect('/');
+  
 });
 
 //********************************************************************************************************************************
