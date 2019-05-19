@@ -31,10 +31,10 @@ app.use('/s', express.static('views'))
     resave: false,
     saveUninitialized: false,}));
 
-
-app.listen(8080,() =>{
+app.listen(process.env.PORT);
+/*app.listen(8080,() =>{
   console.log('server started!');
-});
+});*/
 
 //********************************************************************************************************************************
 //FONCTIONS
@@ -157,12 +157,12 @@ app.post('/ajouter',async function(req,res){
 
 //MODIFICATION D'UN POST-IT
 app.get('/modifier', async function(req, res){
-}
+});
 
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
-      await knex.raw('UPDATE postit SET data = ?',
+      await knex.raw('UPDATE postit SET data = (?)',
                       [req.body.data]);
     }
     catch(error){
@@ -173,7 +173,7 @@ app.post('/modifier', async function(req, res){
 
 //SUPRESSION D'UN POST-IT
 app.post('/effacer',async function(req,res){
-  if(req.body.author == req.session.login ){
+  /*if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
     }
@@ -186,7 +186,8 @@ app.post('/effacer',async function(req,res){
   else{
     console.log('Hun Hun, you can\'t do that little one');
   }
-  res.redirect('/');
+  res.redirect('/');*/
+  res.send("effacer!");
 
 });
 
