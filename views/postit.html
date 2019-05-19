@@ -63,7 +63,9 @@
 					<td>{{ data.data }}</td>
 				</tr>
 				<tr>
-					<td>{{ data.date }}
+          <td>{{ data.date }}</td>
+        <tr>
+          <td>
 						{% if name ==  data.author  %}
             <form method="POST" action="/modifier" class="update">
               <input type="hidden" name="author" value="{{ data.author }}">
@@ -71,6 +73,8 @@
               <input type="text" name="data" value="Modifier">
               <button type="submit" name="update">Modifier</button>
             </form>
+          </td>
+        <tr>
 						<form method="POST" action="/effacer" class="delete">
 							<input type="hidden" name="author" value="{{ data.author }}">
 							<input type="hidden" name="id" value="{{ data.id }}">
@@ -78,7 +82,9 @@
 							<button type="submit" name="delete">Supprimer</button>
 						</form>
 						{% endif %}
-					</td>
+            </td>
+  
+				</tr>
 				</tr>
 			</table>
 		{% endfor %}
