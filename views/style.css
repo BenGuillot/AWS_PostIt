@@ -19,34 +19,34 @@ h1{
 	text-align: center;
 }
 
-h2{}
+
 
 .postIt{
 	overflow: auto;
-	position: absolute;
+	position: fixed;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
 	border: 2px solid white;
 	color: black;
-	font-style: bold;
+	font-style: italic;
 	z-index: 0;
 }
 
 .postIt:hover, .ShinyPostIt:hover{
-	Z-index:2001;
+	Z-index : 2001 ;
 }
 
 .ShinyPostIt{
 	animation: rainbow 5s infinite;
 	overflow: auto;
-	position: absolute;
+	position: fixed;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
 	border: 2px solid rgb(255, 255, 255);
 	color: black;
-	font-style: bold;
+	font-style: italic;
 }
 
 textarea{
@@ -64,16 +64,15 @@ textarea{
 	left: 0;
 	right: 0;
 	border: 0ch;
-	background-color: black;
 }
 
-#templateAndOption{
+.templateAndOption{
 	position: absolute;
 	width: 300px;
 	height: 400px;
 	top: 2%;
 	bottom: -2%;
-	left: 100% - 10%;
+	left: 70%;
 	right: 2%;
 	border: 1ch;
 	z-index: 2000;
@@ -81,14 +80,14 @@ textarea{
 	color: black;
 }
 
-.PostItForm{
+table.PostItForm{
 	position: absolute;
 	overflow: hidden;
 	width: 150px;
 	height: 20px;
 	top: 60%;
 	bottom: -30%;
-	left: 100% - 50%;
+	left: 20%;
 	right: 30%;
 	border: 1ch;
 	z-index: 2000;
@@ -99,7 +98,7 @@ textarea{
 table.opt{
 	overflow: hidden;
 	position: absolute;
-	margin-top: 15%;
+	margin-top: 50%;
 	margin-left: 5%;
 	margin-right: -5%;
 	margin-bottom: -5%;

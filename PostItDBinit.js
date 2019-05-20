@@ -24,7 +24,7 @@ async function createPostIt() {
     await knex('postit').columnInfo();
     await knex.raw(`INSERT INTO postit (data,author, x, y, type)
                           VALUES
-                          ('Original Post It', 'FAHEI','150','150','ShinyPostIt')`);
+                          ('Original Post It, post enough and you may find a shiny post it !', 'FAHEI','150','150','ShinyPostIt')`);
   
     console.log(await knex.select('*').from('postit'));
   

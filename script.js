@@ -162,12 +162,15 @@ app.get('/modifier', async function(req, res){
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
-      await knex.raw('UPDATE postit SET data = (?)',
-                      [req.body.data]);
+
+      await knex.raw('UPDATE postit SET data = (?)WHERE id = (?)',
+                      [req.body.data, req.body.id]);
     }
     catch(error){
       console.error(error);
+      res.redirect('/');
     }
+    res.redirect('/');
   }
 });
 
@@ -187,15 +190,11 @@ app.post('/effacer',async function(req,res){
     console.log('Hun Hun, you can\'t do that little one');
   }
   res.redirect('/');
-
+  
 });
 
 //********************************************************************************************************************************
 //PAS ENCORE IMPLEMENTE
-
-
-
-
 app.all('/s/list',function(req,res){
   res.send("List!");
 });

@@ -25,9 +25,20 @@ function addPostIt(event){
   let localdate = new Date();
   let str = getDate();
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
-  var element = document.querySelector("#templateAndOption");
-  var span = document.createElement("span"); span.className="PostItForm";
+  var element = document.querySelector(".templateAndOption");
+  var span = document.createElement("div"); span.className="PostItForm";
   var form = document.createElement("form"); form.innerHTML=''; form.method="POST"; form.action="/ajouter";
+  var table = document.createElement("table"); table.innerHTML='';
+  var trData = document.createElement("tr"); trData.innerHTML='';
+  var tdData = document.createElement("td"); tdData.innerHTML='';
+  var trDate = document.createElement("tr"); trDate.innerHTML='';
+  var tdDate = document.createElement("td"); tdDate.innerHTML='';
+  var trpx = document.createElement("tr"); trpx.innerHTML='';
+  var tdpx = document.createElement("td"); tdpx.innerHTML='';
+  var trpy = document.createElement("tr"); trpy.innerHTML='';
+  var tdpy = document.createElement("td"); tdpy.innerHTML='';
+  var trbutt = document.createElement("tr"); trbutt.innerHTML='';
+  var tdbutt = document.createElement("td"); tdbutt.innerHTML='';
   var data = document.createElement("input");
   data.innerHTML='';
   data.type = "text"; data.placeholder ="add a post it"; data.name="data";data.required="true";
@@ -43,8 +54,11 @@ function addPostIt(event){
   var butt = document.createElement("button");
   butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
-         
-  form.appendChild(data); form.appendChild(date); form.appendChild(px); form.appendChild(py); form.appendChild(butt);
+  
+  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
+  trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt);
+  form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
 }
@@ -55,3 +69,5 @@ function action(event){
 }
 
 btn.addEventListener('dblclick',action);
+
+
