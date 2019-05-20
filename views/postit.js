@@ -7,8 +7,6 @@ function initWindow(){
   var window = document.createElement("table");
   //window.innerHTML='';
   window.className="window";
-  window.ondrop="drop(event)";
-  window.ondragover="allowDrop(event)";
   section.appendChild(window);
   btn = document.querySelector('.window');
 }
@@ -71,18 +69,3 @@ function action(event){
 }
 
 btn.addEventListener('dblclick',action);
-
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("table", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("table");
-  ev.target.appendChild(document.getElementById(data));
-}
