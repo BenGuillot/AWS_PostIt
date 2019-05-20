@@ -81,14 +81,14 @@ textarea{
 	color: black;
 }
 
-.PostItForm{
+table.PostItForm{
 	position: absolute;
 	overflow: hidden;
 	width: 150px;
 	height: 20px;
 	top: 60%;
 	bottom: -30%;
-	left: 100% - 50%;
+	left: 20%;
 	right: 30%;
 	border: 1ch;
 	z-index: 2000;
@@ -99,7 +99,7 @@ textarea{
 table.opt{
 	overflow: hidden;
 	position: absolute;
-	margin-top: 15%;
+	margin-top: 50%;
 	margin-left: 5%;
 	margin-right: -5%;
 	margin-bottom: -5%;
