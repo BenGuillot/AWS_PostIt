@@ -19,7 +19,7 @@ const expressAsyncErrors = require('express-async-errors');
 const session = require('express-session');
 
 var uid = 0;
-var z = 0;
+
 
 
 app.use('/s', express.static('views'))
@@ -132,7 +132,6 @@ app.post('/ajouter',async function(req,res){
     var rows = await knex.raw('SELECT * FROM postit');
     for (var r of rows) {
       id+=1;
-      z += 1
     }
   } catch (err) {
     console.log(err);
@@ -147,8 +146,8 @@ app.post('/ajouter',async function(req,res){
   
   //ajout du post it
   try{
-    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, z, req.session.login, type]);
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?)',
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type]);
   }catch(error){
     console.error(error);
     res.redirect('/');
@@ -162,13 +161,10 @@ app.get('/modifier', async function(req, res){
 });
 
 app.post('/modifier', async function(req, res){
-  z += 1;
   if(req.body.author == req.session.login){
     try{
       await knex.raw('UPDATE postit SET data = (?)WHERE id = (?)',
                       [req.body.data, req.body.id]);
-      await knex.raw('UPDATE postit SET z = (?) WHERE id = (?)',
-                     [z, req.body.id]);
     }
     catch(error){
       console.error(error);
@@ -183,7 +179,6 @@ app.post('/effacer',async function(req,res){
   if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
-      z --;
     }
     catch(error){
       console.error(error);

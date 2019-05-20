@@ -49,7 +49,7 @@ function addPostIt(event){
   
   td.appendChild(data); td.appendChild(date); td.appendChild(px); td.appendChild(py); td.appendChild(butt);
   tr.appendChild(td);
-  form.appendChild(tr);
+  table.appendChild(tr);
   form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        

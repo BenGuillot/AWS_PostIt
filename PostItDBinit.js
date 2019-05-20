@@ -17,7 +17,6 @@ async function createPostIt() {
                       date datetime,
                       x INT(16),
                       y INT(16),
-                      z INT(16),
                       author VARCHAR(255),
                       type VARCHAR(255))`);
                     
