@@ -163,11 +163,8 @@ app.get('/modifier', async function(req, res){
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
-      z ++;
       await knex.raw('UPDATE postit SET data = (?)WHERE id = (?)',
                       [req.body.data, req.body.id]);
-      await knex.raw('UPDATE postit SET z = (?) WHERE id = (?)',
-                      [z,req.body.id]);
     }
     catch(error){
       console.error(error);

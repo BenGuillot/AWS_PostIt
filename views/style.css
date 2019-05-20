@@ -23,7 +23,7 @@ h2{}
 
 .postIt{
 	overflow: auto;
-	position: absolute;
+	position: ;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
@@ -34,7 +34,7 @@ h2{}
 }
 
 .postIt:hover, .ShinyPostIt:hover{
-	Z-index:2001;
+	Z-index : 2001 ;
 }
 
 .ShinyPostIt{
