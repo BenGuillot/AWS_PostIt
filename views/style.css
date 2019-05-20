@@ -104,7 +104,12 @@ table.opt{
 	margin-bottom: -5%;
 }
 
-input[type=submit] {
-  background-color: #3CBC8D;
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: black;
+  border: 1px solid white;
   color: white;
+  padding: 5px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }
