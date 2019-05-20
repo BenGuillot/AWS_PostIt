@@ -95,6 +95,12 @@ table.PostItForm{
 	color: white;
 }
 
+form.signup{
+  width: 500px;
+	height: 100px;
+  border: 1px solid lightblue;
+}
+
 table.opt{
 	overflow: hidden;
 	position: absolute;
