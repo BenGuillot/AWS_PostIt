@@ -6,11 +6,11 @@
 	<!--<script src="/s/postit.js" defer></script>-->
 </head>
 <body>
-	<h1>Bienvenue sur PostIt !</h1>
+	<h1 align="center">Bienvenue sur PostIt !</h1>
 	<section id="scriptab">
 		{% if uid == 0 %}
 		<div class="templateAndOption">
-			<h2>Connectez-vous :</h2>
+			<h2 align="center">Connectez-vous :</h2>
 			<table class="opt">
 				<tr>
 					<td>
@@ -22,7 +22,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						OU
 					</td>
 				</tr>
@@ -38,8 +38,10 @@
 		{% else  %}
 		<script src="/s/postit.js"></script>
 		<div class="templateAndOption">
-			<h2>Hey {{ name }}</h2>
+			<h2 align="center">Hey {{ name }}</h2>
+			<p>
 			Insérer un post-it !
+			</p>
 			<table class="opt">
 				<tr>
 					<td>
@@ -72,8 +74,8 @@
               <button type="submit" name="update">Modifier</button>
             </form>
           </td>
-        </tr>  
         <tr>
+        </tr>
           <td>
 						<form method="POST" action="/effacer" class="delete">
 							<input type="hidden" name="author" value="{{ data.author }}">

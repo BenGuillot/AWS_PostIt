@@ -21,7 +21,6 @@ const session = require('express-session');
 var uid = 0;
 
 
-
 app.use('/s', express.static('views'))
   .use(bodyP.urlencoded({ extended: false }))
   .use(cookieP())
@@ -91,7 +90,7 @@ app.post('/signup',async function(req,res){
   }
 });
 
-/**AFFICHAGE DE LA BD USER POUR LES TESTS A SUPPRIMER AVANT DE RENDRE LE CODE*/
+/**AFFICHAGE DE LA BD USER POUR LES TESTS */
 app.all('/userlist', async function(req, response) {
   let str2 = await knex.select('*').from('users');
   response.render('userlist.html', {'userlist':str2}); 
