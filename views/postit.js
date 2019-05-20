@@ -71,7 +71,7 @@ function action(event){
 btn.addEventListener('dblclick',action);
 /////////////////////////////////////////////////////
 let scale = 1;
-const el = document.querySelector('div');
+const el = document.querySelector('div.postit');
 function zoom(event) {
   event.preventDefault();
 
@@ -85,6 +85,13 @@ function zoom(event) {
 }
 
 el.addEventListener('wheel', zoom);
-
-
+////////////////////////////////////////////////////////
+function startup() {
+  var el = document.getElementsByTagName("canvas")[0];
+  el.addEventListener("touchstart", handleStart, false);
+  el.addEventListener("touchend", handleEnd, false);
+  el.addEventListener("touchcancel", handleCancel, false);
+  el.addEventListener("touchleave", handleLeave, false);
+  el.addEventListener("touchmove", handleMove, false);
+}
 

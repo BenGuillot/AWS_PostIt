@@ -108,10 +108,6 @@ table.opt{
 	margin-bottom: -5%;
 }
 
-
-div.postit {
-  width: 105px;
-  height: 105px;
-  background: #cdf;
-  padding: 5px;
+div.postit{
+  position: absolute;
 }

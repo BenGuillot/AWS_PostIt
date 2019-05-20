@@ -54,8 +54,8 @@
 		</div>
 		{% endif  %}
 		{% for data in postit%}
-      <div>Scale me with your mouse wheel.</div>
-			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;">
+    <div class="postit">
+      <table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;">
 				<tr>
 					<td>{{ data.author}} posted :</td>
 				</tr>
@@ -88,6 +88,7 @@
             </td>
 				</tr>
 			</table>
+    </div>
 		{% endfor %}
 	</section>
 </body>
