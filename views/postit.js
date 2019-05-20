@@ -1,5 +1,22 @@
 var btn;
 
+
+function zoom(event) {
+  event.preventDefault();
+
+  scale += event.deltaY * -0.01;
+
+  // Restrict scale
+  scale = Math.min(Math.max(.125, scale), 4);
+
+  // Apply scale transform
+  el.style.transform = `scale(${scale})`;
+}
+
+let scale = 1;
+const el = document.querySelector(".postIt");
+el.onwheel = zoom;
+
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
