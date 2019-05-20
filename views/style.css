@@ -12,6 +12,10 @@
 body{
 	background-color: black;
 	color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1{
@@ -102,4 +106,12 @@ table.opt{
 	margin-left: 5%;
 	margin-right: -5%;
 	margin-bottom: -5%;
+}
+
+
+div.postit {
+  width: 105px;
+  height: 105px;
+  background: #cdf;
+  padding: 5px;
 }

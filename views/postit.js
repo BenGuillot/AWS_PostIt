@@ -63,11 +63,28 @@ function addPostIt(event){
   element.appendChild(span);        
 }
 
+
 function action(event){
   alert("creation de post-it!:");
   addPostIt(event);
 }
-
 btn.addEventListener('dblclick',action);
+/////////////////////////////////////////////////////
+let scale = 1;
+const el = document.querySelector('div');
+function zoom(event) {
+  event.preventDefault();
+
+  scale += event.deltaY * -0.01;
+
+  // Restrict scale
+  scale = Math.min(Math.max(.125, scale), 4);
+
+  // Apply scale transform
+  el.style.transform = `scale(${scale})`;
+}
+
+el.addEventListener('wheel', zoom);
+
 
 
