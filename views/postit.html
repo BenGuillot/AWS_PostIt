@@ -54,7 +54,7 @@
 		</div>
 		{% endif  %}
 		{% for data in postit%}
-			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;" >
+			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;" draggable="true"  ondragstart="drag(event)">
 				<tr>
 					<td>{{ data.author}} posted :</td>
 				</tr>
