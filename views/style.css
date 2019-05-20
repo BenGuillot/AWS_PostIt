@@ -12,6 +12,10 @@
 body{
 	background-color: black;
 	color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1{
@@ -110,6 +114,7 @@ table.opt{
 	margin-bottom: -5%;
 }
 
+<<<<<<< HEAD
 input[type=button], input[type=submit], input[type=reset] {
   background-color: black;
   border: 1px solid white;
@@ -119,3 +124,8 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 4px 2px;
   cursor: pointer;
 }
+=======
+div.postit{
+  position: absolute;
+}
+>>>>>>> 7185d5167f38c54cbecc003388976de776f3e217
