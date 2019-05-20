@@ -162,8 +162,8 @@ app.get('/modifier', async function(req, res){
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
-      await knex.raw('UPDATE postit SET data = (?) WHERE',
-                      [req.body.data]);
+      await knex.raw('UPDATE postit SET data = (?) WHERE id = (?)',
+                      [req.body.data, req.body.id]);
     }
     catch(error){
       console.error(error);
@@ -194,10 +194,6 @@ app.post('/effacer',async function(req,res){
 
 //********************************************************************************************************************************
 //PAS ENCORE IMPLEMENTE
-
-
-
-
 app.all('/s/list',function(req,res){
   res.send("List!");
 });
