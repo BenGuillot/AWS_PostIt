@@ -103,3 +103,8 @@ table.opt{
 	margin-right: -5%;
 	margin-bottom: -5%;
 }
+
+input[type=submit] {
+  background-color: #3CBC8D;
+  color: white;
+}
