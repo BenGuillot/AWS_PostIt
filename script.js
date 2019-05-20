@@ -91,7 +91,7 @@ app.post('/signup',async function(req,res){
   }
 });
 
-/**AFFICHAGE DE LA BD USER POUR LES TESTS */
+/**AFFICHAGE DE LA BD USER POUR LES TESTS A SUPPRIMER AVANT DE RENDRE LE CODE*/
 app.all('/userlist', async function(req, response) {
   let str2 = await knex.select('*').from('users');
   response.render('userlist.html', {'userlist':str2}); 
@@ -132,6 +132,7 @@ app.post('/ajouter',async function(req,res){
     var rows = await knex.raw('SELECT * FROM postit');
     for (var r of rows) {
       id+=1;
+      z += 1
     }
   } catch (err) {
     console.log(err);
@@ -146,8 +147,8 @@ app.post('/ajouter',async function(req,res){
   
   //ajout du post it
   try{
-    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type]);
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, z, req.session.login, type]);
   }catch(error){
     console.error(error);
     res.redirect('/');
@@ -161,10 +162,13 @@ app.get('/modifier', async function(req, res){
 });
 
 app.post('/modifier', async function(req, res){
+  z += 1;
   if(req.body.author == req.session.login){
     try{
       await knex.raw('UPDATE postit SET data = (?)WHERE id = (?)',
                       [req.body.data, req.body.id]);
+      await knex.raw('UPDATE postit SET z = (?) WHERE id = (?)',
+                     [z, req.body.id]]);
     }
     catch(error){
       console.error(error);

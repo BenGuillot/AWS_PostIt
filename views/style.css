@@ -19,17 +19,17 @@ h1{
 	text-align: center;
 }
 
-h2{}
+
 
 .postIt{
 	overflow: auto;
-	position: fixed;
+	position: relative;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
 	border: 2px solid white;
 	color: black;
-	font-style: bold;
+	font-style: italic;
 	z-index: 0;
 }
 
@@ -40,13 +40,13 @@ h2{}
 .ShinyPostIt{
 	animation: rainbow 5s infinite;
 	overflow: auto;
-	position: fixed;
+	position: relative;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
 	border: 2px solid rgb(255, 255, 255);
 	color: black;
-	font-style: bold;
+	font-style: italic;
 }
 
 textarea{
@@ -73,7 +73,7 @@ textarea{
 	height: 400px;
 	top: 2%;
 	bottom: -2%;
-	left: 100% - 10%;
+	left: 90%;
 	right: 2%;
 	border: 1ch;
 	z-index: 2000;
@@ -88,7 +88,7 @@ textarea{
 	height: 20px;
 	top: 60%;
 	bottom: -30%;
-	left: 100% - 50%;
+	left: 50%;
 	right: 30%;
 	border: 1ch;
 	z-index: 2000;
