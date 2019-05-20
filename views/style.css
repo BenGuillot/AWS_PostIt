@@ -81,13 +81,12 @@ textarea{
 	color: black;
 }
 
-.PostItForm{
+table.PostItForm{
 	position: absolute;
 	overflow: hidden;
 	width: 150px;
 	height: 20px;
-	top: 60%;
-	bottom: -30%;
+	top: 1%;
 	left: 10%;
 	right: 30%;
 	border: 1ch;

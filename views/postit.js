@@ -29,8 +29,16 @@ function addPostIt(event){
   var span = document.createElement("div"); span.className="PostItForm";
   var form = document.createElement("form"); form.innerHTML=''; form.method="POST"; form.action="/ajouter";
   var table = document.createElement("table"); table.innerHTML='';
-  var tr = document.createElement("tr"); tr.innerHTML='';
-  var td = document.createElement("td"); td.innerHTML='';
+  var trData = document.createElement("tr"); trData.innerHTML='';
+  var tdData = document.createElement("td"); tdData.innerHTML='';
+  var trDate = document.createElement("tr"); trDate.innerHTML='';
+  var tdDate = document.createElement("td"); tdDate.innerHTML='';
+  var trpx = document.createElement("tr"); trpx.innerHTML='';
+  var tdpx = document.createElement("td"); tdpx.innerHTML='';
+  var trpy = document.createElement("tr"); trpy.innerHTML='';
+  var tdpy = document.createElement("td"); tdpy.innerHTML='';
+  var trbutt = document.createElement("tr"); trbutt.innerHTML='';
+  var tdbutt = document.createElement("td"); tdbutt.innerHTML='';
   var data = document.createElement("input");
   data.innerHTML='';
   data.type = "text"; data.placeholder ="add a post it"; data.name="data";data.required="true";
@@ -47,9 +55,9 @@ function addPostIt(event){
   butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
-  td.appendChild(data); td.appendChild(date); td.appendChild(px); td.appendChild(py); td.appendChild(butt);
-  tr.appendChild(td);
-  table.appendChild(tr);
+  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
+  trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt);
   form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
