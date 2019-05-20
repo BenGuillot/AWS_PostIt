@@ -36,7 +36,7 @@
 			</table>
 		</div>
 		{% else  %}
-		<script src="/s/postit.js"></script>
+		<script src="/s/postit.js" defer></script>
 		<div class="templateAndOption">
 			<h2 align="center">Hey {{ name }}</h2>
 			<p>
@@ -54,7 +54,7 @@
 		</div>
 		{% endif  %}
 		{% for data in postit%}
-			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;" draggable="true">
+			<table id="postIt" class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;" draggable="true">
 				<tr>
 					<td>{{ data.author}} posted :</td>
 				</tr>
