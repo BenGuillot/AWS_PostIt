@@ -9,7 +9,7 @@
 	<h1>Bienvenue sur PostIt !</h1>
 	<section id="scriptab">
 		{% if uid == 0 %}
-		<span class="templateAndOption">
+		<div class="templateAndOption">
 			<h2>Connectez-vous :</h2>
 			<table class="opt">
 				<tr>
@@ -34,10 +34,10 @@
 					</td>
 				</tr>
 			</table>
-		</span>
+		</div>
 		{% else  %}
 		<script src="/s/postit.js"></script>
-		<span class="templateAndOption">
+		<div class="templateAndOption">
 			<h2>Hey {{ name }}</h2>
 			Insérer un post-it !
 			<table class="opt">
@@ -49,7 +49,7 @@
 					</td>
 				</tr>			
 			</table>
-		</span>
+		</div>
 		{% endif  %}
 		{% for data in postit%}
 			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;" >
