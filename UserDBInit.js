@@ -10,12 +10,11 @@ const knex = require('knex')({
 async function foo() {
   try{
     await knex.raw(`DROP TABLE IF EXISTS users`);  
-  
     await knex.raw(`CREATE TABLE users 
                       (id VARCHAR(255) PRIMARY KEY,
                       pwd VARCHAR(255) NOT NULL)`);
     
-    await knex('users').columnInfo();
+    // await knex('users').columnInfo();
     await knex.raw(`INSERT INTO users (id, pwd)
                           VALUES
                           ('FAHEI','faudraChangerCa'),
