@@ -67,7 +67,7 @@ textarea{
 	background-color: black;
 }
 
-#templateAndOption{
+.templateAndOption{
 	position: absolute;
 	width: 300px;
 	height: 400px;

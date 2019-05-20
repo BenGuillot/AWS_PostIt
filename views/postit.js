@@ -25,7 +25,7 @@ function addPostIt(event){
   let localdate = new Date();
   let str = getDate();
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
-  var element = document.querySelector("#templateAndOption");
+  var element = document.querySelector(".templateAndOption");
   var span = document.createElement("span"); span.className="PostItForm";
   var form = document.createElement("form"); form.innerHTML=''; form.method="POST"; form.action="/ajouter";
   var data = document.createElement("input");

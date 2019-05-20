@@ -9,7 +9,7 @@
 	<h1 align="center">Bienvenue sur PostIt !</h1>
 	<section id="scriptab">
 		{% if uid == 0 %}
-		<span id="templateAndOption">
+		<span class="templateAndOption">
 			<h2 align="center">Connectez-vous :</h2>
 			<table class="opt">
 				<tr>
@@ -38,7 +38,7 @@
 		</span>
 		{% else  %}
 		<script src="/s/postit.js"></script>
-		<span id="templateAndOption">
+		<span class="templateAndOption">
 			<h2 align="center">Hey {{ name }}</h2>
 			<p>
 			Insérer un post-it !
