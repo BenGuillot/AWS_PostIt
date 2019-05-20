@@ -55,7 +55,7 @@
 		</span>
 		{% endif  %}
 		{% for data in postit%}
-			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px; " >
+			<table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px; z-index : {{ data.z }};" >
 				<tr>
 					<td>{{ data.author}} posted :</td>
 				</tr>

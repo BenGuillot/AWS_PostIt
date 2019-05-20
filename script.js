@@ -19,6 +19,7 @@ const expressAsyncErrors = require('express-async-errors');
 const session = require('express-session');
 
 var uid = 0;
+var z = 0;
 
 
 app.use('/s', express.static('views'))
@@ -162,8 +163,11 @@ app.get('/modifier', async function(req, res){
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
-      await knex.raw('UPDATE postit SET data = (?) WHERE id = (?)',
+      z ++;
+      await knex.raw('UPDATE postit SET data = (?)WHERE id = (?)',
                       [req.body.data, req.body.id]);
+      await knex.raw('UPDATE postit SET z = (?) WHERE id = (?)',
+                      [z,req.body.id]);
     }
     catch(error){
       console.error(error);
