@@ -22,7 +22,7 @@ h1{
 
 
 .postIt{
-	overflow: auto;
+	overflow: hidden;
 	position: relative;
 	width: 200px;
 	height: 100px;
@@ -34,12 +34,12 @@ h1{
 }
 
 .postIt:hover, .ShinyPostIt:hover{
-	Z-index : 2001 ;
+	Z-index :  2000000000001 ;
 }
 
 .ShinyPostIt{
 	animation: rainbow 5s infinite;
-	overflow: auto;
+	overflow: hidden;
 	position: relative;
 	width: 200px;
 	height: 100px;
@@ -68,15 +68,16 @@ textarea{
 }
 
 .templateAndOption{
+  overflow: hidden;
 	position: absolute;
 	width: 300px;
 	height: 400px;
 	top: 2%;
 	bottom: -2%;
-	left: 90%;
+	left: 75%;
 	right: 2%;
 	border: 1ch;
-	z-index: 2000;
+	z-index: 2000000000000;
 	background-color: white;
 	color: black;
 }
@@ -91,7 +92,7 @@ textarea{
 	left: 50%;
 	right: 30%;
 	border: 1ch;
-	z-index: 2000;
+	z-index:  2000000000000;
 	background-color: black;
 	color: white;
 }

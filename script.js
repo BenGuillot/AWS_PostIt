@@ -168,7 +168,7 @@ app.post('/modifier', async function(req, res){
       await knex.raw('UPDATE postit SET data = (?)WHERE id = (?)',
                       [req.body.data, req.body.id]);
       await knex.raw('UPDATE postit SET z = (?) WHERE id = (?)',
-                     [z, req.body.id]]);
+                     [z, req.body.id]);
     }
     catch(error){
       console.error(error);
@@ -183,6 +183,7 @@ app.post('/effacer',async function(req,res){
   if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
+      z --;
     }
     catch(error){
       console.error(error);
