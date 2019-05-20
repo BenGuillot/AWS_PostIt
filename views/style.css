@@ -23,7 +23,7 @@ h2{}
 
 .postIt{
 	overflow: auto;
-	position: ;
+	position: fixed;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
@@ -40,7 +40,7 @@ h2{}
 .ShinyPostIt{
 	animation: rainbow 5s infinite;
 	overflow: auto;
-	position: absolute;
+	position: fixed;
 	width: 200px;
 	height: 100px;
 	background-color: gray;
