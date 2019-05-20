@@ -12,7 +12,6 @@
 body{
 	background-color: black;
 	color: white;
-  display : flex;
 }
 
 h1{
@@ -20,7 +19,7 @@ h1{
 	text-align: center;
 }
 
-h2{}
+
 
 .postIt{
 	overflow: auto;
@@ -32,7 +31,6 @@ h2{}
 	color: black;
 	font-style: italic;
 	z-index: 0;
-  padding: 5px;
 }
 
 .postIt:hover, .ShinyPostIt:hover{
@@ -66,7 +64,6 @@ textarea{
 	left: 0;
 	right: 0;
 	border: 0ch;
-	background-color: black;
 }
 
 .templateAndOption{
