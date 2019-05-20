@@ -46,6 +46,7 @@ async function vue(){
 
 async function role(){
   try{
+    await knex.raw(`DROP ROLE IF EXISTS utilisateur`);
     await knex.raw(`CREATE ROLE utilisateur`);
     await knex.raw(`GRANT SELECT INSERT UPDATE DELETE
                     ON postitUser
