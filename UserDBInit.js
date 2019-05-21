@@ -31,6 +31,7 @@ async function foo() {
 async function vue(){
   try{
     await knex.raw(`DROP VIEW IF EXISTS postitUser`);
+    // PAS UN BON WHERE EN FAIT !!
     await knex.raw(`CREATE VIEW postitUser as
                     SELECT *
                     FROM postit p, users u
@@ -47,6 +48,7 @@ async function role(){
   try{
     await knex.raw(`DROP ROLE IF EXISTS utilisateur`);
     await knex.raw(`CREATE ROLE utilisateur`);
+    /// DU COUP CA NE VA PAS MARCHER CA !!
     await knex.raw(`GRANT SELECT INSERT UPDATE DELETE
                     ON postitUser
                     TO utilisateur
