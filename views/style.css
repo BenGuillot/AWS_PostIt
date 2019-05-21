@@ -13,7 +13,6 @@ body{
 	background-color: black;
 	color: white;
   margin: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -107,7 +106,7 @@ table.opt{
 }
 
 
-input[type=button], input[type=submit], input[type=reset] {
+input[type=button], input[type=submit], input[type=reset], button {
   background-color: black;
   border: 1px solid white;
   color: white;
