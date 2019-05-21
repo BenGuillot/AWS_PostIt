@@ -36,7 +36,7 @@
 			</table>
 		</div>
 		{% else  %}
-		<script src="/s/postit.js" defer></script>
+		<script src="/s/postit.js"></script>
 		<div class="templateAndOption">
 			<h2 align="center">Hey {{ name }}</h2>
 			<p>
@@ -71,7 +71,7 @@
             <form method="POST" action="/modifier" class="update">
               <input type="hidden" name="author" value="{{ data.author }}">
               <input type="hidden" name="id" value="{{ data.id }}">
-              <input type="text" name="data" placeholder="Modifier ce post it">
+              <input type="text" name="data" required placeholder="Modifier ce post it">
               <button type="submit" name="update">Modifier</button>
             </form>
           </td>

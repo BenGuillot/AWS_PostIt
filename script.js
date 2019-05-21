@@ -139,7 +139,7 @@ app.post('/ajouter',async function(req,res){
   //gestion de shinyPostIt
   let alea = getRandomInt(100); console.log(alea);
   let type = "postIt";
-  if(alea < 5){
+  if(alea < 50){
     type = "ShinyPostIt";
   }
   
@@ -165,6 +165,7 @@ app.post('/modifier', async function(req, res){
     try{
       await knex.raw('UPDATE postit SET data = (?) WHERE id = (?)',
                       [req.body.data, req.body.id]);
+      let date = await knex.raw('SELECT date FROM postit WHERE id = (?)',[])
     }
     catch(error){
       console.error(error);
