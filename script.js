@@ -165,7 +165,6 @@ app.post('/modifier', async function(req, res){
     try{
       await knex.raw('UPDATE postit SET data = (?) WHERE id = (?)',
                       [req.body.data, req.body.id]);
-      let date = await knex.raw('SELECT date FROM postit WHERE id = (?)',[])
     }
     catch(error){
       console.error(error);
