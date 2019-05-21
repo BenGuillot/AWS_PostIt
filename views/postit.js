@@ -49,11 +49,7 @@ function addPostIt(event){
   py.type = "hidden"; py.value=event.clientY; py.name="py";
   var rad = document.createElement("input"); rad.innerHTML='';
   rad.type = "radio"; rad.value="prive"; rad.name="protect";
-  var lab1 = document.createElement("")
   
-  
-  <input type="radio" id="huey" name="drone" value="huey"
-         checked>
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
