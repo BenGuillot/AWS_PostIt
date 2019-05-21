@@ -39,20 +39,15 @@ function addPostIt(event){
   var tdpy = document.createElement("td"); tdpy.innerHTML='';
   var trbutt = document.createElement("tr"); trbutt.innerHTML='';
   var tdbutt = document.createElement("td"); tdbutt.innerHTML='';
-  var data = document.createElement("input");
-  data.innerHTML='';
-  data.type = "text"; data.placeholder ="add a post it"; data.name="data";data.required="true";
-  var date = document.createElement("input")
-  date.innerHTML='';
+  var data = document.createElement("input"); data.innerHTML='';
+  data.type = "text"; data.placeholder ="Ajouter un nouveau post-it"; data.name="data";data.required="true";
+  var date = document.createElement("input"); date.innerHTML='';
   date.type = "hidden"; date.name="date"; date.value=str;
-  var px = document.createElement("input");
-  px.innerHTML='';
+  var px = document.createElement("input"); px.innerHTML='';
   px.type = "hidden"; px.value=event.clientX; px.name="px";
-  var py = document.createElement("input");
-  py.innerHTML='';
+  var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
-  var butt = document.createElement("button");
-  butt.innerHTML='';
+  var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
   tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
