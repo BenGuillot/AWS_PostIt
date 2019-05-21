@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Créer un compte</title>
+	<title>Créer un compte PostIt</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
-	<!--<script src="postit.js" defer></script>-->
 </head>
 <body>
-  <h1>Devenir un membre de Post-it !</h1>
+  <h1>Devenir un membre de PostIt</h1>
   <p>
-    Rejoignez la communauté Post-it et partagez vous aussi vos post-it virtuels ! <br>
+    Rejoignez la communauté PostIt et partagez vous aussi vos post-it virtuels ! <br>
     Have fun :)<br>
   </p>
   <form method="POST" action="/signup" class = "signup">
     <table class="signup">
-      <tbody>
         <tr>
           <td>Choisissez votre identifiant :</td>
           <td><input type="text"  required name ="id" placeholder="Identifiant"></td>
@@ -26,11 +24,9 @@
         <tr>
           <td><input type="submit" value ="Je crée un compte !"></td>
         </tr>
-      </tbody>
-  </table>
+    </table>
   </form>
   <form method="POST" action = "/" class = "retour">
-    <!-- <a href="postit.html">Retourner à la page d'accueil</a> -->
     <input type = "submit" value = "Retour à la page d'accueil">
   </form>
 </body>
