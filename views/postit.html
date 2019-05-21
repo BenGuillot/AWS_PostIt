@@ -43,23 +43,16 @@
 						<form method="POST" action="/logout">
 							<button type="submit" name="logout">Déconnexion !</button>
 						</form>
-					</td>
-				</tr>			
+				</td></tr>			
 			</table>
 		</div>
 		{% endif  %}
 		{% for data in postit%}
     <div class="postit">
       <table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;">
-				<tr>
-					<td>{{ data.author}} posted :</td>
-				</tr>
-				<tr>
-					<td>{{ data.data }}</td>
-				</tr>
-				<tr>
-          <td>{{ data.date }}</td>
-        </tr>
+				<tr><td>{{ data.author}} posted :</td></tr>
+				<tr><td>{{ data.data }}</td></tr>
+				<tr><td>{{ data.date }}</td></tr>
         <tr>
           <td>
 						{% if name ==  data.author  %}
@@ -67,7 +60,7 @@
               <input type="hidden" name="author" value="{{ data.author }}">
               <input type="hidden" name="id" value="{{ data.id }}">
               <input type="text" name="data" value="Modifier">
-              <button type="submit" name="update">Modifier</button>
+              <input type="submit" name="update" >
             </form>
           </td>
         </tr>
