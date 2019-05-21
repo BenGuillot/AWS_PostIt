@@ -66,15 +66,12 @@
           <td>{{ data.date }}</td>
         </tr>
         <tr>
-          <a href="/edit"></a>
-        </tr>
-        <tr>
           <td>
 						{% if name ==  data.author  %}
             <form method="POST" action="/modifier" class="update">
               <input type="hidden" name="author" value="{{ data.author }}">
               <input type="hidden" name="id" value="{{ data.id }}">
-              <input type="text" name="data" value="Modifier">
+              <input type="text" name="data" placeholder="Modifier ce post it">
               <button type="submit" name="update">Modifier</button>
             </form>
           </td>
