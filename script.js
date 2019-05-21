@@ -19,6 +19,7 @@ const expressAsyncErrors = require('express-async-errors');
 const session = require('express-session');
 
 var uid = 0;
+var edit = 0;
 
 
 app.use('/s', express.static('views'))
@@ -61,7 +62,8 @@ app.all('/',async function(req,res){
   let postit = await knex.select('*').from('postit');
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
-                                              "postit" : postit
+                                              "postit" : postit,
+                                              "edit" : edit
                                               });
 });
 
@@ -145,8 +147,8 @@ app.post('/ajouter',async function(req,res){
   
   //ajout du post it
   try{
-    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, req.body.protect]);
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?)',
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, "public"]);
   }catch(error){
     console.error(error);
     res.redirect('/');
@@ -156,6 +158,10 @@ app.post('/ajouter',async function(req,res){
 });
 
 //MODIFICATION D'UN POST-IT
+app.get('/edit',function(req,res){
+  edit = 1;
+  res.redirect('/');
+});
 app.get('/modifier', async function(req, res){
 });
 
@@ -169,6 +175,7 @@ app.post('/modifier', async function(req, res){
       console.error(error);
       res.redirect('/');
     }
+    edit = 0;
     res.redirect('/');
   }
 });
