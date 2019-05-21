@@ -106,7 +106,7 @@ table.opt{
 }
 
 
-input[type=button], input[type=submit], input[type=reset], button {
+input[type=button], input[type=submit], input[type=reset] {
   background-color: black;
   border: 1px solid white;
   color: white;
