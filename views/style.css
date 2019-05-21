@@ -70,8 +70,8 @@ textarea{
 .templateAndOption{
 	position: absolute;
 	width: 300px;
-	height: 400px;
-	top: 25%;
+	height: 320px;
+	top: 80px;
 	bottom: -2%;
 	left: 70%;
 	right: 2%;
@@ -96,9 +96,6 @@ table.PostItForm{
 	color: white;
 }
 
-form.signup{
-  border: 1px solid lightblue;
-}
 
 table.opt{
 	overflow: hidden;
@@ -109,7 +106,7 @@ table.opt{
 	margin-bottom: -5%;
 }
 
-<<<<<<< HEAD
+
 input[type=button], input[type=submit], input[type=reset] {
   background-color: black;
   border: 1px solid white;
@@ -119,8 +116,7 @@ input[type=button], input[type=submit], input[type=reset] {
   margin: 4px 2px;
   cursor: pointer;
 }
-=======
+
 div.postit{
   position: absolute;
 }
->>>>>>> 7185d5167f38c54cbecc003388976de776f3e217

@@ -7,12 +7,8 @@
 </head>
 <body>
   <h1>Devenir un membre de PostIt</h1>
-  <p>
-    Rejoignez la communauté PostIt et partagez vous aussi vos post-it virtuels ! <br>
-    Have fun :)<br>
-  </p>
-  <form method="POST" action="/signup" class = "signup">
     <table class="signup">
+      <form method="POST" action="/signup" class = "signup">
         <tr>
           <td>Choisissez votre identifiant :</td>
           <td><input type="text"  required name ="id" placeholder="Identifiant"></td>
@@ -24,8 +20,8 @@
         <tr>
           <td><input type="submit" value ="Je crée un compte !"></td>
         </tr>
-    </table>
-  </form>
+    </form>
+  </table>
   <form method="POST" action = "/" class = "retour">
     <input type = "submit" value = "Retour à la page d'accueil">
   </form>
