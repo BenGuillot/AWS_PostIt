@@ -25,33 +25,66 @@ function addPostIt(event){
   let localdate = new Date();
   let str = getDate();
   console.log("x : "+ event.clientX+" y : "+ event.clientY);
-  var element = document.querySelector("#templateAndOption");
-  var span = document.createElement("span"); span.className="PostItForm";
+  var element = document.querySelector(".templateAndOption");
+  var span = document.createElement("div"); span.className="PostItForm";
   var form = document.createElement("form"); form.innerHTML=''; form.method="POST"; form.action="/ajouter";
-  var data = document.createElement("input");
-  data.innerHTML='';
-  data.type = "text"; data.placeholder ="add a post it"; data.name="data";data.required="true";
-  var date = document.createElement("input")
-  date.innerHTML='';
+  var table = document.createElement("table"); table.innerHTML='';
+  var trData = document.createElement("tr"); trData.innerHTML='';
+  var tdData = document.createElement("td"); tdData.innerHTML='';
+  var trDate = document.createElement("tr"); trDate.innerHTML='';
+  var tdDate = document.createElement("td"); tdDate.innerHTML='';
+  var trpx = document.createElement("tr"); trpx.innerHTML='';
+  var tdpx = document.createElement("td"); tdpx.innerHTML='';
+  var trpy = document.createElement("tr"); trpy.innerHTML='';
+  var tdpy = document.createElement("td"); tdpy.innerHTML='';
+  var trbutt = document.createElement("tr"); trbutt.innerHTML='';
+  var tdbutt = document.createElement("td"); tdbutt.innerHTML='';
+  var data = document.createElement("input"); data.innerHTML='';
+  data.type = "text"; data.placeholder ="Ajouter un nouveau post-it"; data.name="data";data.required="true";
+  var date = document.createElement("input"); date.innerHTML='';
   date.type = "hidden"; date.name="date"; date.value=str;
-  var px = document.createElement("input");
-  px.innerHTML='';
+  var px = document.createElement("input"); px.innerHTML='';
   px.type = "hidden"; px.value=event.clientX; px.name="px";
-  var py = document.createElement("input");
-  py.innerHTML='';
+  var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
-  var butt = document.createElement("button");
-  butt.innerHTML='';
+  var rad = document.createElement("input"); rad.innerHTML='';
+  rad.type = "radio"; rad.value="prive"; rad.name="protect";
+  var lab1 = document.createElement("")
+  
+  
+  <input type="radio" id="huey" name="drone" value="huey"
+         checked>
+  var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
-         
-  form.appendChild(data); form.appendChild(date); form.appendChild(px); form.appendChild(py); form.appendChild(butt);
+  
+  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
+  trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt);
+  form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
 }
+
 
 function action(event){
   alert("creation de post-it!:");
   addPostIt(event);
 }
-
 btn.addEventListener('dblclick',action);
+/////////////////////////////////////////////////////
+let scale = 1;
+const el = document.querySelector('div.postit');
+function zoom(event) {
+  event.preventDefault();
+
+  scale += event.deltaY * -0.01;
+
+  // Restrict scale
+  scale = Math.min(Math.max(.125, scale), 4);
+
+  // Apply scale transform
+  el.style.transform = `scale(${scale})`;
+}
+
+el.addEventListener('wheel', zoom);
+////////////////////////////////////////////////////////
