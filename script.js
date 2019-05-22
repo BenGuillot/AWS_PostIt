@@ -32,7 +32,7 @@ app.use('/s', express.static('views'))
     saveUninitialized: false,}));
 
 //app.listen(process.env.PORT);
-app.listen(8080,() =>{
+app.listen(8080, () =>{
   console.log('server started!');
 });
 
