@@ -95,6 +95,14 @@ table.PostItForm{
 	color: white;
 }
 
+table.logout{
+	overflow: hidden;
+	position: absolute;
+	margin-top: 50%;
+	margin-left: 52%;
+	margin-right: 0%;
+	margin-bottom: -5%;
+}
 
 table.opt{
 	overflow: hidden;
@@ -104,7 +112,6 @@ table.opt{
 	margin-right: -5%;
 	margin-bottom: -5%;
 }
-
 
 input[type=button], input[type=submit], input[type=reset] {
   background-color: black;
