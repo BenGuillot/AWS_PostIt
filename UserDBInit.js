@@ -10,12 +10,11 @@ const knex = require('knex')({
 async function foo() {
   try{
     await knex.raw(`DROP TABLE IF EXISTS users`);  
-  
     await knex.raw(`CREATE TABLE users 
                       (id VARCHAR(255) PRIMARY KEY,
                       pwd VARCHAR(255) NOT NULL)`);
     
-    await knex('users').columnInfo();
+    // await knex('users').columnInfo();
     await knex.raw(`INSERT INTO users (id, pwd)
                           VALUES
                           ('FAHEI','faudraChangerCa'),
@@ -29,6 +28,43 @@ async function foo() {
   }
 }
 
+async function vue(){
+  try{
+    await knex.raw(`DROP VIEW IF EXISTS postitUser`);
+    // PAS UN BON WHERE EN FAIT !!
+    await knex.raw(`CREATE VIEW postitUser as
+                    SELECT *
+                    FROM postit p, users u
+                    WHERE p.author = u.id`);
+    
+    await knex.destroy();
+  }
+  catch(error){
+    console.error(error);
+  }
+}
+
+async function role(){
+  try{
+    await knex.raw(`DROP ROLE IF EXISTS utilisateur`);
+    await knex.raw(`CREATE ROLE utilisateur`);
+    /// DU COUP CA NE VA PAS MARCHER CA !!
+    await knex.raw(`GRANT SELECT INSERT UPDATE DELETE
+                    ON postitUser
+                    TO utilisateur
+                    [WITH GRANT OPTIONS] `);
+    await knex.raw(`GRANT utilisateur
+                    TO users`);
+    
+    await knex.destroy();
+  }
+  catch(error){
+    console.error(error);
+  }
+}
+
 
 
 foo();
+vue();
+role();

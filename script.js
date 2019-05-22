@@ -31,7 +31,7 @@ app.use('/s', express.static('views'))
     resave: false,
     saveUninitialized: false,}));
 
-
+//app.listen(process.env.PORT);
 app.listen(8080,() =>{
   console.log('server started!');
 });
@@ -145,14 +145,32 @@ app.post('/ajouter',async function(req,res){
   
   //ajout du post it
   try{
-    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type]);
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, req.body.protect]);
   }catch(error){
     console.error(error);
     res.redirect('/');
   } 
   console.log('post it succesfully added');   
   res.redirect('/');
+});
+
+//MODIFICATION D'UN POST-IT
+app.get('/modifier', async function(req, res){
+});
+
+app.post('/modifier', async function(req, res){
+  if(req.body.author == req.session.login){
+    try{
+      await knex.raw('UPDATE postit SET data = (?) WHERE id = (?)',
+                      [req.body.data, req.body.id]);
+    }
+    catch(error){
+      console.error(error);
+      res.redirect('/');
+    }
+    res.redirect('/');
+  }
 });
 
 //SUPRESSION D'UN POST-IT
@@ -171,15 +189,11 @@ app.post('/effacer',async function(req,res){
     console.log('Hun Hun, you can\'t do that little one');
   }
   res.redirect('/');
-
+  
 });
 
 //********************************************************************************************************************************
 //PAS ENCORE IMPLEMENTE
-
-
-
-
 app.all('/s/list',function(req,res){
   res.send("List!");
 });
