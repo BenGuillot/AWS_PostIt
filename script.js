@@ -146,7 +146,7 @@ app.post('/ajouter',async function(req,res){
   //ajout du post it
   try{
     await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, "prive");
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, 'prive']);;
   }catch(error){
     console.error(error);
     res.redirect('/');
