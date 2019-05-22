@@ -48,7 +48,6 @@ function addPostIt(event){
   var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
   
-  var rad = 
   
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
