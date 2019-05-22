@@ -80,8 +80,7 @@ app.post('/signup',async function(req,res){
       console.error(error);
       res.redirect('/s/signup.html');
     }    
-    // let postit = await knex.select('*').from('postit').where('author', req.body.id);
-    let postit = await knex.raw('SELCT * FROM postit WHERE author = "LAU" AND protect = "prive" ');
+    let postit = await knex.select('*').from('postit');
     res.render(__dirname+'/views/postit.html', { "uid" : 1,
                                                  "name" : req.body.id,
                                                  "postit" : postit});
@@ -109,6 +108,14 @@ app.post('/login', async function(request, response) {
     request.session.login = request.body.id;
     request.session.password = request.body.pwd;
     uid = 1;
+    
+  // let postit = await knex.select('*').from('postit', 'users').where('postit.author', 'users.id');
+    let postit = await knex.raw(`SELECT * FROM 'postit', 'users' WHERE 'postit'.'author' = 'users'.?)
+  response.render(__dirname+'/views/postit.html', {"uid" : uid,
+                                              "name" : request.session.login,
+                                              "postit" : postit
+                                              });
+    
     response.redirect('/');
   }
   else {
