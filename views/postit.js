@@ -47,11 +47,8 @@ function addPostIt(event){
   px.type = "hidden"; px.value=event.clientX; px.name="px";
   var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
-<<<<<<< HEAD
-  var rad = document.createElement("input"); rad.innerHTML='';
-  rad.type = "radio"; rad.value="prive"; rad.name="protect";
-=======
->>>>>>> 4668f0cc8f1208a41e22cccbb94196ecfc4d1df9
+  
+  var rad = 
   
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
