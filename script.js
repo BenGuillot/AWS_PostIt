@@ -80,7 +80,8 @@ app.post('/signup',async function(req,res){
       console.error(error);
       res.redirect('/s/signup.html');
     }    
-    let postit = await knex.select('*').from('postit').where('author', req.body.id);
+    // let postit = await knex.select('*').from('postit').where('author', req.body.id);
+    let postit = await knex.raw('SELCT * FROM postit WHERE author = "LAU" AND protect = "prive" ');
     res.render(__dirname+'/views/postit.html', { "uid" : 1,
                                                  "name" : req.body.id,
                                                  "postit" : postit});
