@@ -48,23 +48,24 @@
 		</div>
 		{% endif  %}
 		{% for data in postit%}
-    <div class="postit">
-      <table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;">
-				<tr><td>{{ data.author}} posted :</td></tr>
-				<tr><td>{{ data.data }}</td></tr>
-				<tr><td>{{ data.date }}</td></tr>
-        {% if name ==  data.author  %}
-        <tr>
-          <td>
-            <form method="POST" action="/modifier" class="update">
-              <input type="hidden" name="author" value="{{ data.author }}">
-              <input type="hidden" name="id" value="{{ data.id }}">
-              <input type="text" name="data" value="Modifier">
-              <input type="submit" name="update" value="Modifier">
-            </form>
-          </td>
-        </tr>
-        <tr>
+     <div class="postit">
+       <table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;">
+      {% if data.protect == "public" %}
+	  			<tr><td>{{ data.author}} posted :</td></tr>
+	  			<tr><td>{{ data.data }}</td></tr>
+	  			<tr><td>{{ data.date }}</td></tr>
+          {% if name ==  data.author  %}
+          <tr>
+            <td>
+              <form method="POST" action="/modifier" class="update">
+                <input type="hidden" name="author" value="{{ data.author }}">
+                <input type="hidden" name="id" value="{{ data.id }}">
+                <input type="text" name="data" value="Modifier">
+                <input type="submit" name="update" value="Modifier">
+              </form>
+            </td>
+          </tr>
+          <tr>
           <td>
 						<form method="POST" action="/effacer" class="delete">
 							<input type="hidden" name="author" value="{{ data.author }}">
@@ -75,8 +76,40 @@
             </td>
 				</tr>
         {% endif %}
+     {% else %}
+        {% if name ==  data.author  %}
+	  		<tr><td>{{ data.author}} posted :</td></tr>
+	  		<tr><td>{{ data.data }}</td></tr>
+	  		<tr><td>{{ data.date }}</td></tr>
+         <tr>
+            <td>
+              <form method="POST" action="/modifier" class="update">
+                <input type="hidden" name="author" value="{{ data.author }}">
+                <input type="hidden" name="id" value="{{ data.id }}">
+                <input type="text" name="data" value="Modifier">
+                <input type="submit" name="update" value="Modifier">
+              </form>
+            </td>
+          </tr>
+          <tr>
+          <td>
+						<form method="POST" action="/effacer" class="delete">
+							<input type="hidden" name="author" value="{{ data.author }}">
+							<input type="hidden" name="id" value="{{ data.id }}">
+							<input type="hidden" name="delete" value="y">
+							<input type="submit" name="delete" value = "Supprimer">
+						</form>
+            </td>
+				</tr>
+        {% endif %}
+          
+        
 			</table>
     </div>
+    {% else %}
+    
+    
+    {% endif %}
 		{% endfor %}
 	</section>
 </body>
