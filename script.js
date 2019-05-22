@@ -110,7 +110,7 @@ app.post('/login', async function(request, response) {
     uid = 1;
     
   // let postit = await knex.select('*').from('postit', 'users').where('postit.author', 'users.id');
-    let postit = await knex.raw(`SELECT * FROM 'postit', 'users' WHERE 'postit'.'author' = 'users'.?)
+    let postit = await knex.raw('SELECT * FROM postit WHERE author = ?', [request.session.login]);
   response.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : request.session.login,
                                               "postit" : postit
