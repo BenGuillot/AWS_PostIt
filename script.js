@@ -63,8 +63,6 @@ app.all('/',async function(req,res){
                                               "name" : req.session.login,
                                               "postit" : postit
                                               });
-  let postit2 = await knex.raw('SELECT * FROM postit WHERE (?) = (?)' ,[uid, req.session.login]);
-  res.render(__dirname+'/views/postit.html', {"postit2": postit2});
 });
 
 //********************************************************************************************************************************
