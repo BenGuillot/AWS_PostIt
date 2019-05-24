@@ -32,9 +32,9 @@ app.use('/s', express.static('views'))
     saveUninitialized: false,}));
 
 //app.listen(process.env.PORT);
-app.listen(8080, () =>{
-  console.log('server started!');
-});
+app.listen(process.env.PORT
+//{ console.log('server started!');}
+);
 
 //********************************************************************************************************************************
 //FONCTIONS
@@ -60,7 +60,7 @@ function getRandomInt(max) {
 app.all('/',async function(req,res){
   let postit ="";
   if(req.session.login != null){
-    postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','private').orWhere('protect','public');
+    postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','prive').orWhere('protect','public');
   }
   else{
     postit = await knex.select('*').from('postit').where('protect','public');
