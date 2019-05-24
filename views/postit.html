@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="/s/style.css">
 	<!--<script src="/s/postit.js" defer></script>-->
+  <script>
+  function supp(){
+    let m = confirm("message");
+    return m;
+  }
+  </script>
 </head>
 <body>
 	<h1 align="center">Bienvenue sur PostIt !</h1>
@@ -82,7 +88,7 @@
 							<input type="hidden" name="author" value="{{ data.author }}">
 							<input type="hidden" name="id" value="{{ data.id }}">
 							<input type="hidden" name="delete" value="y">
-							<button type="submit" name="delete">Supprimer</button>
+							<button type="button" name="delete" onclick="supp()">Supprimer</button>
 						</form>
 						{% endif %}
             </td>
