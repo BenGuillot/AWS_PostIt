@@ -162,13 +162,7 @@ app.post('/ajouter',async function(req,res){
 });
 
 //MODIFICATION D'UN POST-IT
-<<<<<<< HEAD
-=======
 
-app.get('/modifier', async function(req, res){
-});
-
->>>>>>> 443a74ba63eeebcf4c8e3e05220f1dd2e45c73a9
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
