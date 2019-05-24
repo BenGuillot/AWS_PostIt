@@ -46,13 +46,15 @@ function addPostIt(event){
   px.type = "hidden"; px.value=event.clientX; px.name="px";
   var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
+  var priv = document.createElement("input"); priv.innerHTML='';
+  priv.type = "radio"; priv.name="protect"; priv.value="private";
   
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
   tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
   trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
-  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt); table.appendChild(priv);
   form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
@@ -94,7 +96,7 @@ function supp(){
 function modif(){
   let m = document.querySelector(".update");
   var input = document.createElement("input"); input.innerHTML = '';
-  input.type="text"; input.required="true";
+  input.type="text"; input.required="true"; input.name="data";
   var submit = document.createElement("input"); input.innerHTML = '';
   submit.type = "submit";submit.value="send !"; 
   m.appendChild(input);
