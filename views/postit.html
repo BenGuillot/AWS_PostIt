@@ -56,19 +56,19 @@
         {% if name ==  data.author  %}
         <tr>
           <td>
-            <form method="POST" action="/modifier" class="update">
+            <form method="POST" action="/modifier" class="{{ data.id }}">
               <input type="hidden" name="author" value="{{ data.author }}">
               <input type="hidden" name="id" value="{{ data.id }}">
-              <input type="button" onclick="modif()" name="update" value="Modifier">
+              <input type="button" onclick="modif({{ data.id }})" name="update" value="Modifier">
             </form>
           </td>
         </tr>
         <tr>
           <td>
-						<form method="POST" action="/effacer" class="delete">
+						<form method="POST" action="/effacer" class="{{ data.id }}">
 							<input type="hidden" name="author" value="{{ data.author }}">
 							<input type="hidden" name="id" value="{{ data.id }}">
-							<input type="button" onclick="supp()" name="delete" value = "Supprimer">
+							<input type="button" onclick="supp({{ data.id }})" name="delete" value = "Supprimer">
 						</form>
             </td>
 				</tr>

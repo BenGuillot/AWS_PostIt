@@ -138,7 +138,7 @@ app.post('/ajouter',async function(req,res){
   try {
     var rows = await knex.raw('SELECT * FROM postit');
     for (var r of rows) {
-      id+=1;
+      id+=rows.length;
     }
   } catch (err) {
     console.log(err);
