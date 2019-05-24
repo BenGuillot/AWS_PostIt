@@ -60,7 +60,7 @@ function addPostIt(event){
   var pub = document.createElement("input"); priv.innerHTML='';
   pub.type = "radio"; pub.name="protect"; pub.value="public"; 
   
-  var labpriv = document.createElement("label"); labpriv.innerHTML=''; labpriv.for="private"; labpriv.textContent="privée";
+  var labpriv = document.createElement("label"); labpriv.innerHTML=''; labpriv.for="prive"; labpriv.textContent="privée";
   var labpub = document.createElement("label"); labpub.innerHTML=''; labpub.for="public"; labpub.textContent="public";
   
   var butt = document.createElement("input"); butt.innerHTML='';
