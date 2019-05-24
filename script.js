@@ -176,8 +176,8 @@ app.post('/modifier', async function(req, res){
 
 //SUPRESSION D'UN POST-IT
 app.post('/effacer',async function(req,res){
-  let m = confirm("certain ? t'es vraiment sûr ? REALLY ??");
-  if(m == true){
+  console.log("req.body.delete = "+req.body.delete);
+  if(req.body.delete == true){
     if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
