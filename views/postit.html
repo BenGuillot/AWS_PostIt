@@ -59,8 +59,7 @@
             <form method="POST" action="/modifier" class="update">
               <input type="hidden" name="author" value="{{ data.author }}">
               <input type="hidden" name="id" value="{{ data.id }}">
-              <input type="text" name="data" value="Modifier">
-              <input type="button" name="update" value="Modifier">
+              <input type="button" onclick="modif()" name="update" value="Modifier">
             </form>
           </td>
         </tr>
