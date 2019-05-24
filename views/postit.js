@@ -81,7 +81,7 @@ function action(event){
 btn.addEventListener('dblclick',action);
 ////////////////////////////////////////////////ZOOM SUR LE POST-IT (ne fonctionne pas)////////////////////////////////////////////////////////
 let scale = 1;
-const el = document.querySelector('#scriptab');
+const el = document.querySelector('.window');
 function zoom(event) {
   event.preventDefault();
 
