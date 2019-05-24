@@ -58,13 +58,13 @@ function getRandomInt(max) {
 //HANDLERS
 
 app.all('/',async function(req,res){
+  let postit ="";
   if(req.session.login != null){
-    let postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','private').orWhere('protect','public');
+    postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','private').orWhere('protect','public');
   }
   else{
-    let postit = await knex.select('*').from('postit').where;
+    postit = await knex.select('*').from('postit').where('protect','public');
   }
-  
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
                                               "postit" : postit
@@ -145,14 +145,14 @@ app.post('/ajouter',async function(req,res){
   //gestion de shinyPostIt
   let alea = getRandomInt(100); console.log(alea);
   let type = "postIt";
-  if(alea < 50){
+  if(alea < 1){
     type = "ShinyPostIt";
   }
   
   //ajout du post it
   try{
     await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type,req.body.protect]);
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, req.body.protect]);
   }catch(error){
     console.error(error);
     res.redirect('/');
