@@ -23,9 +23,9 @@ async function createPostIt() {
     await knex('postit').columnInfo();
     await knex.raw(`INSERT INTO postit (data, author, x, y, type, protect)
                           VALUES
-                          ('Double click to post, post enough and you may find a shiny post it !', 'FAHEI','150','150','ShinyPostIt','public')`);
+                          ('Double click to post, post enough and you may find a shiny post it !', 'FAHEI','150','150','ShinyPostIt', 'public')`);
   
-    console.log(await knex.select('*').from('postit').where('protect',"public"));
+    console.log(await knex.select('*').from('postit').where('protect', 'public'));
   
     await knex.destroy();
   }catch(error){

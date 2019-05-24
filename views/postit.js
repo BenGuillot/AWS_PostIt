@@ -56,7 +56,7 @@ function addPostIt(event){
   var tdpub = document.createElement("td"); tdpub.innerHTML='';
   
   var priv = document.createElement("input"); priv.innerHTML='';
-  priv.type = "radio"; priv.name="protect"; priv.value="private"; 
+  priv.type = "radio"; priv.name="protect"; priv.value="prive"; 
   var pub = document.createElement("input"); priv.innerHTML='';
   pub.type = "radio"; pub.name="protect"; pub.value="public"; 
   
@@ -64,7 +64,7 @@ function addPostIt(event){
   var labpub = document.createElement("label"); labpub.innerHTML=''; labpub.for="public"; labpub.textContent="public";
   
   var butt = document.createElement("input"); butt.innerHTML='';
-  butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
+  butt.type = "submit"; butt.value="Poster !"; butt.textContent="Post it !";
   
   tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py);
   tdbutt.appendChild(butt); tdpriv.appendChild(priv); tdpriv.appendChild(labpriv); tdpub.appendChild(pub); tdpub.appendChild(labpub);

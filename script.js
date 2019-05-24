@@ -60,10 +60,16 @@ function getRandomInt(max) {
 app.all('/',async function(req,res){
   let postit ="";
   if(req.session.login != null){
-    postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','prive').orWhere('protect','public');
+    postit = await knex.select('*')
+                        .from('postit')
+                        .where('author', req.session.login)
+                        .andWhere('protect','prive')
+                        .orWhere('protect','public');
   }
   else{
-    postit = await knex.select('*').from('postit').where('protect','public');
+    postit = await knex.select('*')
+                        .from('postit')
+                        .where('protect','public');
   }
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
