@@ -1,5 +1,6 @@
 /////////////////////////////////////////////////CREATE A NEW POST-IT///////////////////////////////////////////////////////////////////////////
 var btn;
+
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
@@ -11,6 +12,7 @@ function initWindow(){
   btn = document.querySelector('.window');
 }
 initWindow();
+
 //récuppère la date courante;
 function getDate(){
   let localdate = new Date();
@@ -19,7 +21,8 @@ function getDate(){
   console.log(str);
   return str;
 }
-//ajoute un post it aux coordonnées du double clic 
+
+//ajoute un post-it aux coordonnées du double clic 
 function addPostIt(event){
   let localdate = new Date();
   let str = getDate();
@@ -98,7 +101,7 @@ el.addEventListener('wheel', zoom);
 ////////////////////////////////////////////////SUPPRESSION D'UN POST-IT///////////////////////////////////////////////////////////////////////
 function supp(){
     let m = document.querySelector(".delete");
-    let c =confirm("certain ? t'es vraiment sûr ? REALLY ??");
+    let c = confirm("certain ? t'es vraiment sûr ? REALLY ??");
     if(c == true){
       var button = document.createElement("input");
       button.innerHTML='';
@@ -112,7 +115,7 @@ function modif(){
   var input = document.createElement("input"); input.innerHTML = '';
   input.type="text"; input.required="true"; input.name="data";
   var submit = document.createElement("input"); input.innerHTML = '';
-  submit.type = "submit";submit.value="send !"; 
+  submit.type = "submit"; submit.value="send !"; 
   m.appendChild(input);
   m.appendChild(submit);
 }

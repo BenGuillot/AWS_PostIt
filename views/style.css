@@ -95,11 +95,19 @@ table.PostItForm{
 	color: white;
 }
 
+table.logout{
+	overflow: hidden;
+	position: absolute;
+	margin-top: 50%;
+	margin-left: 52%;
+	margin-right: 0%;
+	margin-bottom: -5%;
+}
 
 table.opt{
 	overflow: hidden;
 	position: absolute;
-	margin-top: 20%;
+	margin-top: 0%;
 	margin-left: 5%;
 	margin-right: -5%;
 	margin-bottom: -5%;
@@ -114,9 +122,13 @@ table.opt2{
 	margin-bottom: -5%;
 }
 
+<<<<<<< HEAD
 
 
 input[type=button], input[type=submit], input[type=reset] {
+=======
+input[type=button], input[type=submit], input[type=reset], button[type=submet] {
+>>>>>>> 3c6b27f5e4406908434d5fb9811c510842dcd25f
   background-color: black;
   border: 1px solid white;
   color: white;

@@ -32,7 +32,7 @@ app.use('/s', express.static('views'))
     saveUninitialized: false,}));
 
 //app.listen(process.env.PORT);
-app.listen(8080,() =>{
+app.listen(8080, () =>{
   console.log('server started!');
 });
 
@@ -152,7 +152,7 @@ app.post('/ajouter',async function(req,res){
   //ajout du post it
   try{
     await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, req.body.protect]);
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, 'prive']);;
   }catch(error){
     console.error(error);
     res.redirect('/');
@@ -162,9 +162,6 @@ app.post('/ajouter',async function(req,res){
 });
 
 //MODIFICATION D'UN POST-IT
-
-app.get('/modifier', async function(req, res){
-});
 
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
