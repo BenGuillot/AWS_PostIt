@@ -18,13 +18,12 @@ async function createPostIt() {
                       y INT(16),
                       author VARCHAR(255),
                       type VARCHAR(255),
-                      tab VARCHAR(255),
                       protect VARCHAR(255))`);
                     
     await knex('postit').columnInfo();
-    await knex.raw(`INSERT INTO postit (data,author, x, y, type, tab, protect)
+    await knex.raw(`INSERT INTO postit (data,author, x, y, type, protect)
                           VALUES
-                          ('Double click to post, post enough and you may find a shiny post it !', 'FAHEI','150','150','ShinyPostIt','public','public')`);
+                          ('Double click to post, post enough and you may find a shiny post it !', 'FAHEI','150','150','ShinyPostIt','public')`);
   
     console.log(await knex.select('*').from('postit').where('protect',"public"));
   

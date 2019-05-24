@@ -90,3 +90,13 @@ function supp(){
       m.appendChild(button);
     }
 }
+////////////////////////////////////////////////MODIFICATION D'UN POST-IT///////////////////////////////////////////////////////////////////////
+function modif(){
+  let m = document.querySelector(".update");
+  var input = document.createElement("input"); input.innerHTML = '';
+  input.type="text"; input.required="true";
+  var submit = document.createElement("input"); input.innerHTML = '';
+  submit.type = "submit";submit.value="send !"; 
+  m.appendChild(input);
+  m.appendChild(submit);
+}
