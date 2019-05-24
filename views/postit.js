@@ -81,11 +81,11 @@ function action(event){
 btn.addEventListener('dblclick',action);
 ////////////////////////////////////////////////ZOOM SUR LE POST-IT (ne fonctionne pas)////////////////////////////////////////////////////////
 let scale = 1;
-const el = document.querySelector('div.postit');
+const el = document.querySelector('#scriptab');
 function zoom(event) {
   event.preventDefault();
 
-  scale += event.deltaY * -0.01;
+  scale += event.deltaY * -0.001;
 
   // Restrict scale
   scale = Math.min(Math.max(.125, scale), 4);
