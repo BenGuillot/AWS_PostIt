@@ -56,9 +56,15 @@ function getRandomInt(max) {
 }
 //******************************************************************************************************************************** */
 //HANDLERS
-
 app.all('/',async function(req,res){
-  let postit = await knex.select('*').from('postit');
+  let postit = await knex.select('*').from('postit').where('tab','');
+  res.render(__dirname+'/views/postit.html', {"uid" : uid,
+                                              "name" : req.session.login,
+                                              "postit" : postit
+                                              });
+});
+app.all('/:x',async function(req,res){
+  let postit = await knex.select('*').from('postit').where('tab',req.param.x);
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
                                               "postit" : postit
@@ -95,8 +101,6 @@ app.post('/signup',async function(req,res){
   let str2 = await knex.select('*').from('users');
   response.render('userlist.html', {'userlist':str2}); 
 });*/
-
-
 //********************************************************************************************************************************
 //GESTION DE SESSION
 app.get('/login', function(request, response) {
@@ -139,13 +143,14 @@ app.post('/ajouter',async function(req,res){
   //gestion de shinyPostIt
   let alea = getRandomInt(100); console.log(alea);
   let type = "postIt";
+  let 
   if(alea < 50){
     type = "ShinyPostIt";
   }
   
   //ajout du post it
   try{
-    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
+    await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?,?)',
                     [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type,"public"]);
   }catch(error){
     console.error(error);
