@@ -100,9 +100,7 @@ function zoom(event) {
 el.addEventListener('wheel', zoom);
 ////////////////////////////////////////////////SUPPRESSION D'UN POST-IT///////////////////////////////////////////////////////////////////////
 function supp(data){
-  console.log(data);
-    let str= "form."+data;
-    let m = document.querySelector(str);
+    let m = document.querySelector('#del'+data);
     let c = confirm("certain ? t'es vraiment sûr ? REALLY ??");
     if(c == true){
       var button = document.createElement("input");
@@ -114,7 +112,7 @@ function supp(data){
 ////////////////////////////////////////////////MODIFICATION D'UN POST-IT///////////////////////////////////////////////////////////////////////
 function modif(data){
   console.log(data);
-  let m = document.querySelector("."+data);
+  let m = document.querySelector('#up'+data);
   var input = document.createElement("input"); input.innerHTML = '';
   input.type="text"; input.required="true"; input.name="data";
   var submit = document.createElement("input"); input.innerHTML = '';
