@@ -91,10 +91,10 @@ app.post('/signup',async function(req,res){
 });
 
 /**AFFICHAGE DE LA BD USER POUR LES TESTS */
-app.all('/userlist', async function(req, response) {
+/*app.all('/userlist', async function(req, response) {
   let str2 = await knex.select('*').from('users');
   response.render('userlist.html', {'userlist':str2}); 
-});
+});*/
 
 
 //********************************************************************************************************************************
