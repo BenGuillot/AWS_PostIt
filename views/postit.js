@@ -46,19 +46,29 @@ function addPostIt(event){
   px.type = "hidden"; px.value=event.clientX; px.name="px";
   var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
+  
+  var trpriv = document.createElement("tr"); trpriv.innerHTML='';
+  var tdpriv = document.createElement("td"); tdpriv.innerHTML='';
+  var trpub = document.createElement("tr"); trpub.innerHTML='';
+  var tdpub = document.createElement("td"); tdpub.innerHTML='';
+  
   var priv = document.createElement("input"); priv.innerHTML='';
   priv.type = "radio"; priv.name="protect"; priv.value="private"; 
   var pub = document.createElement("input"); priv.innerHTML='';
   pub.type = "radio"; pub.name="protect"; pub.value="public"; 
-  var labpriv = document.createElement("label"); labpriv.innerHTML=''; labpriv.for="privée"; 
-  var labpub = document.createElement("label"); labpub.innerHTML=''; labpub.for="publ"; 
+  
+  var labpriv = document.createElement("label"); labpriv.innerHTML=''; labpriv.for="private"; labpriv.textContent="privée";
+  var labpub = document.createElement("label"); labpub.innerHTML=''; labpub.for="public"; labpub.textContent="public";
   
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
-  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
+  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py);
+  tdbutt.appendChild(butt); tdpriv.appendChild(priv); tdpriv.appendChild(labpriv); tdpub.appendChild(pub); tdpub.appendChild(labpub);
+  
   trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
-  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt); table.appendChild(priv); table.appendChild(pub);
+  trpriv.appendChild(tdpriv); trpub.appendChild(tdpub);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt); table.appendChild(trpriv); table.appendChild(trpub);
   form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
