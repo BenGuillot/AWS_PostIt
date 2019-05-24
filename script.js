@@ -58,7 +58,13 @@ function getRandomInt(max) {
 //HANDLERS
 
 app.all('/',async function(req,res){
-  let postit = await knex.select('*').from('postit');
+  let postit ="";
+  if(req.session.login != null){
+    postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','private').orWhere('protect','public');
+  }
+  else{
+    postit = await knex.select('*').from('postit').where('protect','public');
+  }
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
                                               "postit" : postit
@@ -139,7 +145,7 @@ app.post('/ajouter',async function(req,res){
   //gestion de shinyPostIt
   let alea = getRandomInt(100); console.log(alea);
   let type = "postIt";
-  if(alea < 5){
+  if(alea < 1){
     type = "ShinyPostIt";
   }
   
@@ -156,6 +162,13 @@ app.post('/ajouter',async function(req,res){
 });
 
 //MODIFICATION D'UN POST-IT
+<<<<<<< HEAD
+=======
+
+app.get('/modifier', async function(req, res){
+});
+
+>>>>>>> 443a74ba63eeebcf4c8e3e05220f1dd2e45c73a9
 app.post('/modifier', async function(req, res){
   if(req.body.author == req.session.login){
     try{
@@ -172,7 +185,9 @@ app.post('/modifier', async function(req, res){
 
 //SUPRESSION D'UN POST-IT
 app.post('/effacer',async function(req,res){
-  if(req.body.author == req.session.login ){
+  //console.log("req.body.delete = "+req.body.delete);
+  //if(req.body.delete == true){
+    if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
     }
@@ -187,6 +202,9 @@ app.post('/effacer',async function(req,res){
   }
   res.redirect('/');
   
+  /*else{
+    console.log("je le savais, tu y tiens a ton post it hein ?")
+  }*/
 });
 
 //********************************************************************************************************************************

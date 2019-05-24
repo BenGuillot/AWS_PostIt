@@ -1,5 +1,5 @@
+/////////////////////////////////////////////////CREATE A NEW POST-IT///////////////////////////////////////////////////////////////////////////
 var btn;
-
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
@@ -11,7 +11,6 @@ function initWindow(){
   btn = document.querySelector('.window');
 }
 initWindow();
-
 //récuppère la date courante;
 function getDate(){
   let localdate = new Date();
@@ -48,30 +47,45 @@ function addPostIt(event){
   var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
   
+  var trpriv = document.createElement("tr"); trpriv.innerHTML='';
+  var tdpriv = document.createElement("td"); tdpriv.innerHTML='';
+  var trpub = document.createElement("tr"); trpub.innerHTML='';
+  var tdpub = document.createElement("td"); tdpub.innerHTML='';
+  
+  var priv = document.createElement("input"); priv.innerHTML='';
+  priv.type = "radio"; priv.name="protect"; priv.value="private"; 
+  var pub = document.createElement("input"); priv.innerHTML='';
+  pub.type = "radio"; pub.name="protect"; pub.value="public"; 
+  
+  var labpriv = document.createElement("label"); labpriv.innerHTML=''; labpriv.for="private"; labpriv.textContent="privée";
+  var labpub = document.createElement("label"); labpub.innerHTML=''; labpub.for="public"; labpub.textContent="public";
+  
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
-  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
+  tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py);
+  tdbutt.appendChild(butt); tdpriv.appendChild(priv); tdpriv.appendChild(labpriv); tdpub.appendChild(pub); tdpub.appendChild(labpub);
+  
   trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
-  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt);
+  trpriv.appendChild(tdpriv); trpub.appendChild(tdpub);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt); table.appendChild(trpriv); table.appendChild(trpub);
   form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
 }
-
 
 function action(event){
   alert("creation de post-it!:");
   addPostIt(event);
 }
 btn.addEventListener('dblclick',action);
-/////////////////////////////////////////////////////
+////////////////////////////////////////////////ZOOM SUR LE POST-IT (ne fonctionne pas)////////////////////////////////////////////////////////
 let scale = 1;
-const el = document.querySelector('div.postit');
+const el = document.querySelector('#scriptab');
 function zoom(event) {
   event.preventDefault();
 
-  scale += event.deltaY * -0.01;
+  scale += event.deltaY * -0.001;
 
   // Restrict scale
   scale = Math.min(Math.max(.125, scale), 4);
@@ -81,4 +95,24 @@ function zoom(event) {
 }
 
 el.addEventListener('wheel', zoom);
-////////////////////////////////////////////////////////
+////////////////////////////////////////////////SUPPRESSION D'UN POST-IT///////////////////////////////////////////////////////////////////////
+function supp(){
+    let m = document.querySelector(".delete");
+    let c =confirm("certain ? t'es vraiment sûr ? REALLY ??");
+    if(c == true){
+      var button = document.createElement("input");
+      button.innerHTML='';
+      button.type = "submit"; button.value="bye little one"; button.textContent="Supprimer";
+      m.appendChild(button);
+    }
+}
+////////////////////////////////////////////////MODIFICATION D'UN POST-IT///////////////////////////////////////////////////////////////////////
+function modif(){
+  let m = document.querySelector(".update");
+  var input = document.createElement("input"); input.innerHTML = '';
+  input.type="text"; input.required="true"; input.name="data";
+  var submit = document.createElement("input"); input.innerHTML = '';
+  submit.type = "submit";submit.value="send !"; 
+  m.appendChild(input);
+  m.appendChild(submit);
+}

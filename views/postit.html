@@ -6,11 +6,11 @@
 	<!--<script src="/s/postit.js" defer></script>-->
 </head>
 <body>
-	<h1>Bienvenue sur PostIt !</h1>
+	<h1 align="center">Bienvenue sur PostIt !</h1>
 	<section id="scriptab">
 		{% if uid == 0 %}
 		<div class="templateAndOption">
-		 <h2 align="center">Connectez-vous :</h2>
+			<h2 align="center">Connectez-vous :</h2>
 			<table class="opt">
 				<tr>
 					<td>
@@ -21,11 +21,15 @@
 						</form>
 					</td>
 				</tr>
-				<tr><td align="center">OU</td></tr>
+				<tr>
+					<td align="center">
+						OU
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<form method="GET" action="/signup">
-							<input type="submit" name="signup" value="Creer un compte !">
+							<button type="submit" name="signup">Creer un compte !</button>
 						</form>
 					</td>
 				</tr>
@@ -34,33 +38,40 @@
 		{% else  %}
 		<script src="/s/postit.js"></script>
 		<div class="templateAndOption">
-      <h2 align="center">Hey {{ name }}</h2>
-      <p>
-  			Insérer un post-it !
-      </p>
-			<table class="opt">
-				<tr><td>
+			<h2 align="center">Hey {{ name }}</h2>
+			<p>
+			Insérer un post-it !
+			</p>
+			<table class="opt2">
+				<tr>
+					<td>
 						<form method="POST" action="/logout">
 							<button type="submit" name="logout">Déconnexion !</button>
 						</form>
-				</td></tr>			
+					</td>
+				</tr>			
 			</table>
 		</div>
 		{% endif  %}
 		{% for data in postit%}
     <div class="postit">
       <table class="{{ data.type }}" style="left : {{ data.x }}px; top: {{ data.y }}px;">
-				<tr><td>{{ data.author}} posted :</td></tr>
-				<tr><td>{{ data.data }}</td></tr>
-				<tr><td>{{ data.date }}</td></tr>
-        {% if name ==  data.author  %}
+				<tr>
+					<td>{{ data.author}} posted :</td>
+				</tr>
+				<tr>
+					<td>{{ data.data }}</td>
+				</tr>
+				<tr>
+          <td>{{ data.date }}</td>
+        </tr>
         <tr>
           <td>
+						{% if name ==  data.author  %}
             <form method="POST" action="/modifier" class="update">
               <input type="hidden" name="author" value="{{ data.author }}">
               <input type="hidden" name="id" value="{{ data.id }}">
-              <input type="text" name="data" value="Modifier">
-              <input type="submit" name="update" value="Modifier">
+              <button type="button" name="update" onclick="modif()">Modifier ?</button>
             </form>
           </td>
         </tr>
@@ -69,12 +80,11 @@
 						<form method="POST" action="/effacer" class="delete">
 							<input type="hidden" name="author" value="{{ data.author }}">
 							<input type="hidden" name="id" value="{{ data.id }}">
-							<input type="hidden" name="delete" value="y">
-							<input type="submit" name="delete" value = "Supprimer">
+              <button type="button" name="confirm" onclick="supp()">supprimer ?</button>
 						</form>
+						{% endif %}
             </td>
 				</tr>
-        {% endif %}
 			</table>
     </div>
 		{% endfor %}
