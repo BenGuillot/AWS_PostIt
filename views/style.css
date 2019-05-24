@@ -122,7 +122,13 @@ table.opt2{
 	margin-bottom: -5%;
 }
 
+<<<<<<< HEAD
+
+
+input[type=button], input[type=submit], input[type=reset] {
+=======
 input[type=button], input[type=submit], input[type=reset], button[type=submet] {
+>>>>>>> 3c6b27f5e4406908434d5fb9811c510842dcd25f
   background-color: black;
   border: 1px solid white;
   color: white;
