@@ -1,5 +1,6 @@
 /////////////////////////////////////////////////CREATE A NEW POST-IT///////////////////////////////////////////////////////////////////////////
 var btn;
+var btn2;
 
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
@@ -10,6 +11,7 @@ function initWindow(){
   window.className="window";
   section.appendChild(window);
   btn = document.querySelector('.window');
+  btn2 = document.querySelector('.window');
 }
 initWindow();
 
@@ -81,7 +83,8 @@ function action(event){
   alert("creation de post-it!:");
   addPostIt(event);
 }
-btn.addEventListener('dblclick',action);
+btn.addEventListener('dbclick',action);
+btn2.addEventListener('touchevent',action);
 ////////////////////////////////////////////////ZOOM SUR LE POST-IT (ne fonctionne pas)////////////////////////////////////////////////////////
 let scale = 1;
 const el = document.querySelector('#scriptab');
