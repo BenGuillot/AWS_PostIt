@@ -92,10 +92,7 @@ app.post('/signup',async function(req,res){
       console.error(error);
       res.redirect('/s/signup.html');
     }    
-    let postit = await knex.select('*').from('postit');
-    res.render(__dirname+'/views/postit.html', { "uid" : 1,
-                                                 "name" : req.body.id,
-                                                 "postit" : postit});
+    res.redirect('/');
   }
   else{
     res.redirect('/s/signup.html');
