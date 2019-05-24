@@ -47,14 +47,18 @@ function addPostIt(event){
   var py = document.createElement("input"); py.innerHTML='';
   py.type = "hidden"; py.value=event.clientY; py.name="py";
   var priv = document.createElement("input"); priv.innerHTML='';
-  priv.type = "radio"; priv.name="protect"; priv.value="private";
+  priv.type = "radio"; priv.name="protect"; priv.value="private"; 
+  var pub = document.createElement("input"); priv.innerHTML='';
+  pub.type = "radio"; pub.name="protect"; pub.value="public"; 
+  var labpriv = document.createElement("label"); labpriv.innerHTML=''; labpriv.for="privée"; 
+  var labpub = document.createElement("label"); labpub.innerHTML=''; labpub.for="publ"; 
   
   var butt = document.createElement("input"); butt.innerHTML='';
   butt.type = "submit"; butt.value="send !"; butt.textContent="Post it !";
   
   tdData.appendChild(data); tdDate.appendChild(date); tdpx.appendChild(px); tdpy.appendChild(py); tdbutt.appendChild(butt);
   trData.appendChild(tdData);trDate.appendChild(tdDate);trpx.appendChild(tdpx);trpy.appendChild(tdpy);trbutt.appendChild(tdbutt);
-  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt); table.appendChild(priv);
+  table.appendChild(trData);table.appendChild(trDate);table.appendChild(trpx);table.appendChild(trpy);table.appendChild(trbutt); table.appendChild(priv); table.appendChild(pub);
   form.appendChild(table);
   span.appendChild(form);
   element.appendChild(span);        
