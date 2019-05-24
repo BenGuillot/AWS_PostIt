@@ -58,7 +58,13 @@ function getRandomInt(max) {
 //HANDLERS
 
 app.all('/',async function(req,res){
-  let postit = await knex.select('*').from('postit').where('protect','public');
+  if(req.session.login != null){
+    let postit = await knex.select('*').from('postit').where('author',req.session.login).andWhere('protect','private').orWhere('protect','public');
+  }
+  else{
+    let postit = await knex.select('*').from('postit').where;
+  }
+  
   res.render(__dirname+'/views/postit.html', {"uid" : uid,
                                               "name" : req.session.login,
                                               "postit" : postit
