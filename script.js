@@ -64,8 +64,7 @@ app.all('/',async function(req,res){
                         .from('postit')
                         .where('author', req.session.login)
                         .andWhere('protect','prive')
-                        .orWhere('protect','public');
-  }
+                        .orWhere('protect','public');}
   else{
     postit = await knex.select('*')
                         .from('postit')
@@ -153,9 +152,13 @@ app.post('/ajouter',async function(req,res){
   }
   
   //ajout du post it
+  let protect="prive";
+  if(req.body.protect != null){
+    protect = req.body.protect;
+  }
   try{
     await knex.raw('INSERT INTO postit VALUES (?,?,?,?,?,?,?,?)',
-                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, req.body.protect]);;
+                    [id,req.body.data, req.body.date, req.body.px, req.body.py, req.session.login, type, protect]);;
   }catch(error){
     console.error(error);
     res.redirect('/');
@@ -208,6 +211,4 @@ app.post('/effacer',async function(req,res){
 //PAS ENCORE IMPLEMENTE
 app.all('/s/list',function(req,res){
   res.send("List!");
-});
-
-
+});    
