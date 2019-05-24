@@ -1,5 +1,5 @@
+/////////////////////////////////////////////////CREATE A NEW POST-IT///////////////////////////////////////////////////////////////////////////
 var btn;
-
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
@@ -11,7 +11,6 @@ function initWindow(){
   btn = document.querySelector('.window');
 }
 initWindow();
-
 //récuppère la date courante;
 function getDate(){
   let localdate = new Date();
@@ -59,13 +58,12 @@ function addPostIt(event){
   element.appendChild(span);        
 }
 
-
 function action(event){
   alert("creation de post-it!:");
   addPostIt(event);
 }
 btn.addEventListener('dblclick',action);
-/////////////////////////////////////////////////////
+////////////////////////////////////////////////ZOOM SUR LE POST-IT (ne fonctionne pas)////////////////////////////////////////////////////////
 let scale = 1;
 const el = document.querySelector('div.postit');
 function zoom(event) {
@@ -81,4 +79,14 @@ function zoom(event) {
 }
 
 el.addEventListener('wheel', zoom);
-////////////////////////////////////////////////////////
+////////////////////////////////////////////////SUPPRESSION D'UN POST-IT///////////////////////////////////////////////////////////////////////
+function supp(){
+    let m = document.querySelector(".delete");
+    let c =confirm("certain ? t'es vraiment sûr ? REALLY ??");
+    if(c == true){
+      var button = document.createElement("input");
+      button.innerHTML='';
+      button.type = "submit"; button.value="bye little one"; button.textContent="Supprimer";
+      m.appendChild(button);
+    }
+}
