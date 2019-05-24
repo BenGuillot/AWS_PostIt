@@ -176,8 +176,8 @@ app.post('/modifier', async function(req, res){
 
 //SUPRESSION D'UN POST-IT
 app.post('/effacer',async function(req,res){
-  console.log("req.body.delete = "+req.body.delete);
-  if(req.body.delete == true){
+  //console.log("req.body.delete = "+req.body.delete);
+  //if(req.body.delete == true){
     if(req.body.author == req.session.login ){
     try{
       await knex('postit').where('id',req.body.id).del();
@@ -192,10 +192,10 @@ app.post('/effacer',async function(req,res){
     console.log('Hun Hun, you can\'t do that little one');
   }
   res.redirect('/');
-  }
-  else{
+  
+  /*else{
     console.log("je le savais, tu y tiens a ton post it hein ?")
-  }
+  }*/
 });
 
 //********************************************************************************************************************************

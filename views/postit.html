@@ -6,9 +6,14 @@
 	<!--<script src="/s/postit.js" defer></script>-->
   <script>
   function supp(){
-    let m = document.querySelector("#delete");
-    m.value=confirm("certain ? t'es vraiment sûr ? REALLY ??");
-    console.log(m.value);
+    let m = document.querySelector(".delete");
+    let c =confirm("certain ? t'es vraiment sûr ? REALLY ??");
+    if(c == true){
+      var button = document.createElement("input");
+      button.innerHTML='';
+      button.type = "submit"; button.value="bye little one"; button.textContent="Supprimer";
+      m.appendChild(button);
+    }
   }
   </script>
 </head>
@@ -88,7 +93,8 @@
 						<form method="POST" action="/effacer" class="delete">
 							<input type="hidden" name="author" value="{{ data.author }}">
 							<input type="hidden" name="id" value="{{ data.id }}">
-							<button id="delete" type="submit" name="delete" onclick="supp()">Supprimer</button>
+              <button type="button" name="confirm" onclick="supp()">supprimer ?</button>
+							<!--<button type="submit" name="delete">Supprimer</button>-->
 						</form>
 						{% endif %}
             </td>
