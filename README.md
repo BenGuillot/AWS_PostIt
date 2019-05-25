@@ -1,4 +1,4 @@
-README 
+README
 
 
 Projet d'AWS - Post It
@@ -67,7 +67,8 @@ texte. Le post-it à modifier est identifié par data (cette variable représent
 
 Deux tables sont utilisées : la table "users" et la table "postit".
 - La table users à pour attributs id (varchar(255)) et pwd (vrachar(255)). Elle permet de stocker l'ensemble des 
-comptes utilisateurs. 
+comptes utilisateurs. Deux utilisateurs sont ajoutés à la base de données : "FAHEI" et "LAU".
 * La table postit à pour attribut id(intiger), data (varchar(500)), date(datetime), x (intiger), y (intiger), author 
 (varchar(255)), type (varchar(255)) et protect (varchar(6)). Elle permet de stocker l'ensemble des post-it créés par des 
-utilisateurs.
+utilisateurs. Un post-it initial avec le message "Double click to post, post enough and you may find a shiny post it !"
+est ajouté à la base.
