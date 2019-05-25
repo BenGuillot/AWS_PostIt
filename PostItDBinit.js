@@ -33,8 +33,4 @@ async function createPostIt() {
   }
 }
 
-async function role(){
-  async knex.raw
-}
-
 createPostIt();
