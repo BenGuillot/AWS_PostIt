@@ -4,9 +4,7 @@ var btn;
 //initialise une table de la taille de la fenêtre (moins un espace pour les options)
 function initWindow(){
   var section = document.querySelector("#scriptab");
-  //section.innerHTML='';
   var window = document.createElement("table");
-  //window.innerHTML='';
   window.className="window";
   section.appendChild(window);
   btn = document.querySelector('.window');

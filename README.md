@@ -34,9 +34,16 @@ le post-it est ajouté grâce à une requête d'insertion SQL. L'utilisateur est
 modifié avec le nouveau message donné par l'utilsateur. Il est ensuite renvoyer vers "/".
 - La route "/effacer" permet d'effacer un post-it personnel existant. Le post-it indiqué par l'utilisateur est supprimer 
 grâce à une requête de suppression SQL. Il est ensuite redirigé vers "/".
-- La route 
+- Toutes les routes sont accessibles depuis "/" à partir de formulaires.
 
+
+* Côté client
 
 Les fichiers présents dans le dossier "views" représentent la partie client de l'application. 
+Les actions générées par le client sont gérés dans le fichier postit.js. Il contient les fonctions :
+* initWindow() permettant de créer une table cliquable pour ajouter nos différents post-it.
+* getDate() permettant d'obtenir la date courante sous la forme "AAAA-MM-JJ".
+* addpostit(event) permettant l'ajout d'un nouveau post-it sous forme d
 
-Les actions générées par le client sont gérés dans le fichier postit.js
+
+
