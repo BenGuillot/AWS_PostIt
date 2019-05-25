@@ -25,7 +25,9 @@ vérifie grâce à la fonction "testValueExist(login, password)" que la combinai
 affecte les identifiants et mot de passes réciproquement à session.login et session.password et uid = 1. L'utilisateur
 est redirigé vers "/".
 - La route "/logout" permet dese déconnecter. Elle affecte à session.login et session.password la valeur null et à uid la 
-valeur 0.  
+valeur 0. L'utilisateur est ensuite redirigié vers "/".
+- La route "/ajouter" permet d'ajouter un nouveau post-it. Une variable locale id est initialisée à 1 puis est 
+incrémenté du nombre de post-it existant. 
 
 
 Les fichiers présents dans le dossier "views" représentent la partie client de l'application. 
