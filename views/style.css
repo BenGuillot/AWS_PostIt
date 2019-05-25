@@ -48,10 +48,6 @@ h1{
 	font-style: italic;
 }
 
-textarea{
-	background-color: grey;
-}
-
 .window{
 	overflow: hidden;
 	position: absolute;
