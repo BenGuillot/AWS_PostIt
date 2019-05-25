@@ -43,7 +43,9 @@ Les fichiers présents dans le dossier "views" représentent la partie client de
 Les actions générées par le client sont gérés dans le fichier postit.js. Il contient les fonctions :
 * initWindow() permettant de créer une table cliquable pour ajouter nos différents post-it.
 * getDate() permettant d'obtenir la date courante sous la forme "AAAA-MM-JJ".
-* addpostit(event) permettant l'ajout d'un nouveau post-it sous forme d
+* addpostit(event) permettant l'ajout d'un nouveau post-it sous forme d'une table rectangulaire dont le côté en haut à
+gauche est de coordonnées (x, y) fourni lors du double clic de l'utilisateur. Cette fonction permet également d'afficher
+le texte à ajouter au post-it, un bouton pour valider ainsi qu
 
 
 
