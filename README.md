@@ -45,7 +45,20 @@ Les actions générées par le client sont gérés dans le fichier postit.js. Il
 * getDate() permettant d'obtenir la date courante sous la forme "AAAA-MM-JJ".
 * addpostit(event) permettant l'ajout d'un nouveau post-it sous forme d'une table rectangulaire dont le côté en haut à
 gauche est de coordonnées (x, y) fourni lors du double clic de l'utilisateur. Cette fonction permet également d'afficher
-le texte à ajouter au post-it, un bouton pour valider ainsi qu
+le texte à ajouter au post-it, un bouton pour valider ainsi que deux checkbox à choix unique pour déterminer si le post-it
+sera privé ou public.
+* supp(data) permettant de créer un bouton cliquable pour supprimer un post-it. Le post-it est identifié par data 
+(cette variable représente l'identifiant du post-it).
+* modif(data) permettant de modifier un post-it en créant un formulaire où l'utilisateur pourra entrer le nouveau 
+texte. Le post-it à modifier est identifié par data (cette variable représente l'identifiant du post-it).
 
 
 
+* Côté Base de Données
+
+Deux tables sont utilisées : la table "users" et la table "postit".
+- La table users à pour attributs id (varchar(255)) et pwd (vrachar(255)). Elle permet de stocker l'ensemble des 
+comptes utilisateurs. 
+* La table postit à pour attribut id(intiger), data (varchar(500)), date(datetime), x (intiger), y (intiger), author 
+(varchar(255)), type (varchar(255)) et protect (varchar(6)). Elle permet de stocker l'ensemble des post-it créés par des 
+utilisateurs.
