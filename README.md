@@ -26,8 +26,15 @@ affecte les identifiants et mot de passes réciproquement à session.login et se
 est redirigé vers "/".
 - La route "/logout" permet dese déconnecter. Elle affecte à session.login et session.password la valeur null et à uid la 
 valeur 0. L'utilisateur est ensuite redirigié vers "/".
-- La route "/ajouter" permet d'ajouter un nouveau post-it. Une variable locale id est initialisée à 1 puis est 
-incrémenté du nombre de post-it existant. 
+- La route "/ajouter" permet d'ajouter un nouveau post-it. Une variable locale "id" est initialisée à 1 puis est 
+incrémenté du nombre de post-it existant. Puis un nombre alétoire entre 0 est 100 est utilisé pour déterminer si le post-it 
+ajouté sera un simple post-it ou un "shinyPostit" (si le nombre est inférieur à 1 alors c'est un "shinyPostit"). Enfin,
+le post-it est ajouté grâce à une requête d'insertion SQL. L'utilisateur est redirigé vers "/".
+- La route "/modifier" permet de modifier un post-it personnel existant. Grâce à une requête de mise à jour SQL, le post-it est 
+modifié avec le nouveau message donné par l'utilsateur. Il est ensuite renvoyer vers "/".
+- La route "/effacer" permet d'effacer un post-it personnel existant. Le post-it indiqué par l'utilisateur est supprimer 
+grâce à une requête de suppression SQL. Il est ensuite redirigé vers "/".
+- La route 
 
 
 Les fichiers présents dans le dossier "views" représentent la partie client de l'application. 

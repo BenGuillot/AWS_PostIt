@@ -81,7 +81,8 @@ function action(event){
   alert("creation de post-it!:");
   addPostIt(event);
 }
-btn.addEventListener('dbclick',action);
+
+btn.addEventListener('dblclick',action);
 ////////////////////////////////////////////////ZOOM SUR LE POST-IT (ne fonctionne pas)////////////////////////////////////////////////////////
 let scale = 1;
 const el = document.querySelector('#scriptab');
