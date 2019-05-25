@@ -208,6 +208,16 @@ app.post('/effacer',async function(req,res){
 
 //********************************************************************************************************************************
 //PAS ENCORE IMPLEMENTE
-app.all('/s/list',function(req,res){
-  res.send("List!");
+app.all('/list',async function(req,res){
+  let list = "";
+  try{
+    list = await knex.raw('SELECT * FROM postit');
+  }
+  catch(err){
+    console.log(err);
+  }
+  JSON.stringify(list);
+  console.log(list);
+  
+  //console.log(JSON.parse(list));
 });    
